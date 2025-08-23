@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/style.css">
+  <title>AIVENT</title>
+    <link href="./output.css" rel="stylesheet">
+      <link href="/dist/styles.css" rel="stylesheet">
+
+
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+</head>
+<body>
+<header class="fixed top-0 left-0 w-full z-50 bg-transparent">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center justify-around">
+            <div class="flex items-center bg-no-repeat  bg-cover">
+                <!-- logo begin -->
+                <div id="logo block bg-no-repeat  bg-cover flex items-center justify-center h-12 w-12 rounded-full">
+                    <a href="index.html" class="block">
+                        <img class="logo-main block bg-no-repeat  bg-cover max-w-[120px] "  src="./src/img/logo.webp" alt="">
+                        <img class="logo-scroll hidden" src="/assets/images/logo.webp" alt="">
+                        <img class="logo-mobile hidden md:block" src="/assets/images/logo.webp" alt="">
+                    </a>
+                </div>
+                <!-- logo close -->
+            </div>
+
+            <div class=" hidden lg:flex items-center ">
+                <ul id="mainmenu" class="flex space-x-8 py-[25px]">
+                    <li class="w-100 group relative">
+                        <a class="menu-item active py-4 px-2 text-white hover:text-primary" href="#section-hero">Home</a>
+                        <div class="container absolute  left-0 m-auto w-screen  group-hover:visible transition-all duration-300 z-50 bg-[#101435] shadow-lg hidden group-hover:block pt-4">
+                            <div class=" mx-auto px-4">
+                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
+                                    <div class="text-center">
+                                        <div class="relative overflow-hidden rounded shadow hover:shadow-lg transition duration-300">
+                                            <a class="block p-0" href="index.html">
+                                                <img src="./src/img/demo/homepage-1.webp" class="w-full transform hover:scale-110 transition duration-300" alt="">
+                                            </a>
+                                        </div>
+                                        <h6 class="mt-3 text-gray-800">Demo 1</h6>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="relative overflow-hidden rounded shadow hover:shadow-lg transition duration-300">
+                                            <a class="block p-0" href="index-slider.html">
+                                                <img src="./src/img/demo/homepage-2.webp" class="w-full transform hover:scale-110 transition duration-300" alt="">
+                                            </a>
+                                        </div>
+                                        <h6 class="mt-3 text-gray-800">Demo 2</h6>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="relative overflow-hidden rounded shadow hover:shadow-lg transition duration-300">
+                                            <a class="block p-0" href="index-static-background.html">
+                                                <img src="./src/img/demo/homepage-3.webp" class="w-full transform hover:scale-110 transition duration-300" alt="">
+                                            </a>
+                                        </div>
+                                        <h6 class="mt-3 text-gray-800">Demo 3</h6>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="relative overflow-hidden rounded shadow hover:shadow-lg transition duration-300">
+                                            <a class="block p-0" href="index-slider-text.html">
+                                                <img src="./src/img/demo/homepage-4.webp" class="w-full transform hover:scale-110 transition duration-300" alt="">
+                                            </a>
+                                        </div>
+                                        <h6 class="mt-3 text-gray-800">Demo 4</h6>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <div class="relative overflow-hidden rounded shadow hover:shadow-lg transition duration-300">
+                                            <a class="block p-0" href="index-countdown.html">
+                                                <img src="./src/img/demo/homepage-5.webp" class="w-full transform hover:scale-110 transition duration-300" alt="">
+                                            </a>
+                                        </div>
+                                        <h6 class="mt-3 text-gray-800">Demo 5</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-about">About</a></li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-why-attend">Why Attend</a></li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-speakers">Speakers</a></li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-schedule">Schedule</a></li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-tickets">Tickets</a></li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-venue">Venue</a></li>
+                    <li><a class="menu-item py-4 px-2 text-white hover:text-primary" href="#section-faq">FAQ</a></li>
+                    <li class="group relative">
+                        <a class="menu-item py-4 px-2 text-white hover:text-primary" href="news.html">Pages</a>
+                        <ul class="absolute left-0 w-48 bg-[#101435] shadow-lg hidden group-hover:block py-2">
+                            <li><a class="block px-4 py-2 text-white hover:bg-[#764DF0] transition-all duration-200 ease-in-out" href="tickets.html">Tickets Style 1</a></li>
+                            <li><a class="block px-4 py-2 text-white hover:bg-[#764DF0] transition-all duration-200 ease-in-out" href="tickets-2.html">Tickets Style 2</a></li>
+                            <li><a class="block px-4 py-2 text-white hover:bg-[#764DF0] transition-all duration-200 ease-in-out" href="news.html">News</a></li>
+                            <li><a class="block px-4 py-2 text-white hover:bg-[#764DF0] transition-all duration-200 ease-in-out" href="news-single.html">News Single</a></li>
+                            <li><a class="block px-4 py-2 text-white hover:bg-[#764DF0] transition-all duration-200 ease-in-out" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="flex items-center space-x-4 ">
+                <a class="btn-main bg-[#764DF0] hover:bg-[#764DF0] py-4px px-20px text-white px-6 py-2 rounded hover:bg-primary-dark transition duration-300" href="tickets-2.html">
+                    <span>Buy Tickets</span>
+                </a>
+                 <a class=" btn-main hover:bg-[#764DF0] py-4px px-20px hidden btn-main-hover:block translate-y-[-100%] hover:translate-y-0 transition-transform duration-300 py-4px bx-20px text-white px-6 py-0 rounded " href="tickets-2.html">
+                    <span>Buy Tickets</span>
+                </a>
+
+                <div class="menu_side_area lg:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" b-g fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="section-hero" class="relative h-screen min-h-[800px] justify-content-center text-white overflow-hidden">
+    <!--الخلفية-->
+    <div class="absolute     inset-0 z-0">
+        <img src="./src/img/background/5.webp" class="w-full h-full object-cover" alt="البانر الاول ">
+        <div class="absolute inset-0 gradient-section-bottom"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black to-transparent"></div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container mx-auto px-4 justify-content-center h-full flex items-end pb-20 relative z-10">
+        <div class="w-full lg:w-full">
+            <div class="relative">
+                <!-- العنوان الأول -->
+                <div class="text-left">
+                    <h1 class="text-[130px] lg:text-[10vw] uppercase leading-none mb-0 gradient-text">The Future</h1>
+                </div>
+
+                <!-- العنوان الثاني -->
+                <div class="text-right lg:text-right">
+                    <h1 class="text-[130px] lg:text-[10vw] uppercase leading-none mb-4 gradient-text">Intelligent</h1>
+                </div>
+
+                <div class="absolute top-0 right-0 lg:pt-20 animate-fade-in" style="animation-delay: 1.5s">
+                    <div class="flex items-start">
+                        <i class="text-5xl text-primary icofont-google-map"></i>
+                        <div class="ml-3 mb-4">
+                            <h4 class="text-xl mb-0">121 AI Blvd,<br>San Francisco BCA 94107</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- النص الجانبي -->
+                <div class="absolute bottom-0 w-full lg:w-1/3 animate-fade-in" style="animation-delay: 1.5s">
+                    <p class="text-lg">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- إضافة أنيميشن في CSS -->
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateX(20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+    }
+</style>
+<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+
+</body>
+</html>
