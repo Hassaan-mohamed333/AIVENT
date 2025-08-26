@@ -1,16 +1,74 @@
 @import "tailwindcss";
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Manrope", Helvetica, Arial, sans-serif;
+} */
+  :root {
+    --color-gray: #888888;
+    --color-white: #ffffff;
+    --gradient-text: linear-gradient(0deg, var(--color-gray) 0%, var(--color-white) 75%);
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
 }
 
-/* .gradient-section-bottom {
+  body {
+    background-color: #101435;
+    color: white;
+    overflow-x: hidden;
+  }
+#header.scrolled {
+    background: rgba(16, 20, 53, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+/* Navigation Styles */
+.menu-item {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #764DF0;
+    transition: width 0.3s ease;
+}
+
+.menu-item:hover::after {
+    width: 100%;
+}
+
+  .gradient-section-top {
+    z-index: 1;
+    position: absolute;
+    top: 0 !important;
+    width: 100%;
+    background: linear-gradient(180deg, #101435 0%, #10143500 100%);
+  }
+.gradient-section-bottom {
         z-index: 1;
     position: absolute;
     bottom: 0 !important;
     width: 100%;
      background: linear-gradient(0deg, #101435 0%, #10143500 100%);
 
-} */
+}
+
+ .gradient-text {
+    background: linear-gradient(0deg, #888888 0%, #ffffff 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-fill-color: transparent; */
+  }
+
+
+
+    
+        
+    
