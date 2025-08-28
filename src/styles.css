@@ -48,7 +48,13 @@ h1 , h2 {
     width: 100%;
 }
 
- 
+ /* أضف هذا الكود في نهاية ملف الـ CSS الخاص بك */
+@media (max-width: 1023px) {
+  .main-nav-container {
+    overflow: hidden;
+  }
+}
+
 .gradient-section-bottom {
         z-index: 1;
     position: absolute;
