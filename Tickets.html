@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AIvent - AI Event, Conference and Meetup Website Template</title>
+    <link rel="icon" href="assets/images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="AIvent" name="description">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#764DF0',
+                        secondary: '#442490',
+                        dark: {
+                            1: '#101435',
+                            2: '#1A1E42',
+                            3: '#1e1e1e'
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Manrope', 'sans-serif'],
+                        'body': ['Manrope', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'primary-gradient': 'linear-gradient(0deg, rgba(118, 77, 240, 1) 0%, rgba(118, 77, 240, 0) 100%)',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'morph': 'morph 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(180deg)' }
+                        },
+                        'pulse-glow': {
+                            '0%': { boxShadow: '0 0 5px rgba(118, 77, 240, 0.3)' },
+                            '100%': { boxShadow: '0 0 20px rgba(118, 77, 240, 0.8), 0 0 30px rgba(118, 77, 240, 0.4)' }
+                        },
+                        morph: {
+                            '0%': { borderRadius: '50% 40% 30% 70%' },
+                            '25%': { borderRadius: '30% 60% 70% 40%' },
+                            '50%': { borderRadius: '70% 30% 50% 60%' },
+                            '75%': { borderRadius: '40% 70% 60% 30%' },
+                            '100%': { borderRadius: '50% 40% 30% 70%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="src/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+
+<body class="bg-dark-1">
+    <!-- SECTION 1: PRELOADER -->
+    <section id="preloader-section">
+        <div id="de-loader" class="fixed inset-0 bg-dark-1 flex items-center justify-center z-[20000]">
+            <div class="relative w-20 h-5">
+                <div class="absolute w-4 h-4 bg-primary rounded-full animate-bounce"
+                    style="left: 0px; animation-delay: -0.32s;"></div>
+                <div class="absolute w-4 h-4 bg-primary rounded-full animate-bounce"
+                    style="left: 32px; animation-delay: -0.16s;"></div>
+                <div class="absolute w-4 h-4 bg-primary rounded-full animate-bounce" style="left: 64px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SCROLL CONTROLS -->
+    <section id="scroll-controls-section">
+        <!-- Scroll to Top Button -->
+        <div
+            class="fixed z-50 opacity-0 transition-all duration-300 ease-out left-4 top-1/2 transform -translate-y-1/2 scroll-to-top-container">
+            <div class="relative group cursor-pointer" onclick="scrollToTop()">
+                <div
+                    class="absolute inset-0 w-12 h-12 bg-primary rounded-full opacity-20 animate-pulse-glow group-hover:opacity-40 transition-all duration-300">
+                </div>
+                <div
+                    class="relative w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 animate-float">
+                    <i
+                        class="fas fa-arrow-up text-white text-sm group-hover:text-primary transition-colors duration-300"></i>
+                </div>
+                <div
+                    class="absolute left-16 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <div
+                        class="bg-dark-2/95 backdrop-blur-sm text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap border border-white/10">
+                        Scroll to top
+                        <div
+                            class="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-dark-2/95">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Progress Bar -->
+        <div
+            class="scrollbar-v bg-secondary fixed top-[calc(50%+60px)] left-[43px] w-0.5 transition-all duration-100 ease-linear min-h-0 z-[1000] opacity-0">
+            <div class="w-full bg-primary transition-all duration-100 ease-linear" style="height: 0%;"
+                id="scroll-progress"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: HEADER AND NAVIGATION -->
+    <section id="header-section">
+        <header class="fixed top-0 w-full z-[1000] transition-all duration-300" id="main-header">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <div id="logo">
+                            <a href="index.html">
+                                <img class="h-12 w-auto logo-main block" src="/assets/images/logo.webp" alt="">
+                                <img class="h-12 w-auto logo-scroll hidden" src="/assets/images/logo.webp" alt="">
+                                <img class="h-10 w-auto logo-mobile hidden lg:hidden" src="/assets/images/logo.webp"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex flex-1 justify-center">
+                        <nav id="mainmenu" class="flex items-center space-x-8">
+                            <!-- Home Dropdown -->
+                            <div class="relative group">
+                                <a href="index.html#section-hero"
+                                    class="text-white hover:text-primary transition-colors duration-300 flex items-center">
+                                    Home
+                                    <i
+                                        class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                                </a>
+                                <div
+                                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-screen max-w-6xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                    <div
+                                        class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl">
+                                        <div class="grid grid-cols-5 gap-6">
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-1.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 1">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 1</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-slider.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-2.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 2">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 2</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-static-background.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-3.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 3">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 3</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-slider-text.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-4.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 4">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 4</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-countdown.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-5.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 5">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 5</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Regular Menu Items -->
+                            <a href="index.html#section-about"
+                                class="text-white hover:text-primary transition-colors duration-300">About</a>
+                            <a href="index.html#section-why-attend"
+                                class="text-white hover:text-primary transition-colors duration-300">Why Attend</a>
+                            <a href="index.html#section-speakers"
+                                class="text-white hover:text-primary transition-colors duration-300">Speakers</a>
+                            <a href="index.html#section-schedule"
+                                class="text-white hover:text-primary transition-colors duration-300">Schedule</a>
+                            <a href="index.html#section-tickets"
+                                class="text-white hover:text-primary transition-colors duration-300">Tickets</a>
+                            <a href="index.html#section-venue"
+                                class="text-white hover:text-primary transition-colors duration-300">Venue</a>
+                            <a href="index.html#section-faq"
+                                class="text-white hover:text-primary transition-colors duration-300">FAQ</a>
+
+                            <!-- Pages Dropdown -->
+                            <div class="relative group">
+                                <a href="news.html"
+                                    class="text-white hover:text-primary transition-colors duration-300 flex items-center">
+                                    Pages
+                                    <i
+                                        class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                                </a>
+                                <div
+                                    class="absolute top-full right-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                    <div
+                                        class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-4 shadow-2xl">
+                                        <a href="tickets.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Tickets
+                                            Style 1</a>
+                                        <a href="tickets-2.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Tickets
+                                            Style 2</a>
+                                        <a href="news.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">News</a>
+                                        <a href="news-single.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">News
+                                            Single</a>
+                                        <a href="contact.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- Right Side -->
+                    <div class="flex items-center">
+                        <a class="bg-primary hover:bg-primary/80 text-white py-2 px-6 font-bold text-xs uppercase tracking-wider rounded-md transition-all duration-300 text-center hidden lg:inline-block fx-slide"
+                            href="tickets-2.html" data-hover="Buy Tickets">
+                            <span>Buy Tickets</span>
+                        </a>
+
+                        <!-- Mobile Menu Button -->
+                        <div class="menu_side_area ml-5 lg:hidden">
+                            <span id="menu-btn"
+                                class="cursor-pointer flex flex-col w-8 h-8 justify-center items-center space-y-1">
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line1"></span>
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line2"></span>
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line3"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <!-- SECTION 4: MOBILE MENU -->
+    <section id="mobile-menu-section">
+        <div id="mobile-menu" class="fixed inset-0 z-40 hidden lg:hidden" style="display: none;">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="menu-overlay"></div>
+
+            <!-- Menu Panel -->
+            <div class="absolute right-0 top-0 h-full w-80 bg-dark-1 border-l border-white/10 shadow-2xl"
+                id="menu-panel">
+                <!-- Close Button -->
+                <div class="flex justify-end p-6">
+                    <button id="close-menu-btn"
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+                        <i class="fas fa-times text-white text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="px-6 py-4">
+                    <nav class="space-y-4">
+                        <a href="index.html#section-hero"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-home mr-3 text-primary"></i>Home
+                        </a>
+                        <a href="index.html#section-about"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-info-circle mr-3 text-primary"></i>About
+                        </a>
+                        <a href="index.html#section-why-attend"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-star mr-3 text-primary"></i>Why Attend
+                        </a>
+                        <a href="index.html#section-speakers"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-users mr-3 text-primary"></i>Speakers
+                        </a>
+                        <a href="index.html#section-schedule"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-calendar mr-3 text-primary"></i>Schedule
+                        </a>
+                        <a href="index.html#section-tickets"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-ticket-alt mr-3 text-primary"></i>Tickets
+                        </a>
+                        <a href="index.html#section-venue"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>Venue
+                        </a>
+                        <a href="index.html#section-faq"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-question-circle mr-3 text-primary"></i>FAQ
+                        </a>
+                        <a href="news.html"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-newspaper mr-3 text-primary"></i>News
+                        </a>
+                        <a href="contact.html"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>Contact
+                        </a>
+                    </nav>
+
+                    <!-- CTA Button -->
+                    <div class="mt-8 pt-6 border-t border-white/20">
+                        <a class="mobile-menu-item bg-primary hover:bg-primary/80 text-white py-4 px-6 font-bold text-lg uppercase tracking-wider rounded-lg transition-all duration-300 text-center block"
+                            href="tickets-2.html">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            Buy Tickets
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HERO SECTION -->
+    <section id="section-hero" class="bg-gray-900 text-white relative min-h-[500px] jarallax overflow-hidden"
+        style="z-index: 0;">
+        <div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+        <div class="absolute bottom-10 left-0 w-full z-20">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap items-center justify-between gap-6 lg:gap-12">
+                    <div class="w-full lg:w-1/2">
+                        <div class="relative wow mask-right animated">
+                            <div class="text-left">
+                                <h1 id="animated-heading"
+                                    class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[6rem] 2xl:text-[8rem] uppercase mb-0 leading-none font-bold text-white cursor-none select-none">
+                                    <span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">T</span><span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">i</span><span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">c</span><span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">k</span><span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">e</span><span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">t</span><span
+                                        class="interactive-letter letter opacity-0 transform translate-y-20 inline-block">s</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3 wow fadeInRight animated" data-wow-delay=".3s">
+                        <p class="mb-0 text-gray-200 text-lg leading-relaxed">
+                            Join thought leaders, developers, researchers, and founders as we explore how artificial
+                            intelligence is reshaping industries, creativity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="jarallax-container-0" class="absolute inset-0 overflow-hidden -z-10">
+            <img src="assets/images/background/7.webp"
+                class="jarallax-img object-cover object-center absolute inset-0 w-full h-full transform-gpu will-change-transform"
+                alt="">
+        </div>
+    </section>
+
+    <!-- SECTION 6: TICKETS SECTION -->
+    <section id="section-tickets" class="bg-dark-1 text-white pt-20 relative">
+        <div class="container mx-auto max-w-[1240px] px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row justify-center gap-8">
+                <!-- Tickets Grid -->
+                <div class="lg:w-2/3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="tickets-container">
+                        <!-- Tickets will be generated here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Shopping Cart -->
+                <div class="lg:w-1/3">
+                    <div class="bg-dark-2/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 sticky top-24">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-white text-2xl font-bold">Cart</h3>
+                            <span class="bg-primary text-white text-xs px-2 py-1 rounded-full font-bold"
+                                id="cart-count">0</span>
+                        </div>
+
+                        <div id="cart-items" class="space-y-4">
+                            <div class="text-center py-8 text-white/50" id="empty-cart-message">
+                                <div class="text-4xl mb-4">🛒</div>
+                                <p>Your cart is empty</p>
+                                <p class="text-sm">Add some tickets to get started!</p>
+                            </div>
+                        </div>
+
+                        <div id="cart-total-section" class="border-t border-white/20 mt-6 pt-6 hidden">
+                            <div class="flex items-center justify-between py-3">
+                                <div class="flex-1">
+                                    <h3 class="mb-0 text-white text-xl font-bold">Total</h3>
+                                </div>
+                                <div class="text-right">
+                                    <h3 class="text-white text-2xl font-bold" id="cart-total">$0</h3>
+                                </div>
+                            </div>
+
+                            <button onclick="checkout()"
+                                class="bg-primary hover:bg-dark-1 text-white py-3 px-6 font-bold text-sm uppercase tracking-wider rounded-md transition-all duration-300 inline-block text-center w-full mt-4">
+                                <span>Buy Now</span>
+                            </button>
+
+                            <button onclick="clearCart()"
+                                class="text-white/60 hover:text-red-400 text-sm mt-2 w-full py-2 transition-colors duration-300">Clear
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: NOTIFICATIONS AND TOASTS -->
+    <section id="notifications-section">
+        <div id="success-toast"
+            class="fixed top-20 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-[400px] opacity-0 transition-all duration-300 z-[1001] cursor-pointer">
+            <div class="flex items-center">
+                <i class="fas fa-check-circle mr-2"></i>
+                <span>Added to cart successfully!</span>
+                <button class="ml-4 text-white/80 hover:text-white transition-colors duration-200"
+                    onclick="closeToast()">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: INTERACTIVE ELEMENTS -->
+    <section id="interactive-elements-section">
+        <!-- Creative Cursor -->
+        <div class="creative-cursor"></div>
+    </section>
+
+    <!-- SECTION 9: FOOTER -->
+    <section id="footer-section">
+        <footer class="text-white bg-dark-1 border-t border-white/10">
+            <div class="container mx-auto max-w-[1240px] px-6">
+                <div class="py-16">
+                    <div class="text-center lg:flex lg:items-center lg:justify-between lg:text-left">
+                        <div>
+                            <h3 class="text-xl">Address</h3>
+                            121 AI Blvd, San Francisco<br>
+                            BCA 94107
+                        </div>
+                        <div>
+                            <img src="assets/images/logo.webp" class="w-[150px] mx-auto" alt=""><br>
+                            <div class="flex justify-center space-x-2 mt-4 mb-8">
+                                <a href="#"
+                                    class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors"><i
+                                        class="fab fa-facebook-f text-white text-sm"></i></a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors"><i
+                                        class="fab fa-instagram text-white text-sm"></i></a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors"><i
+                                        class="fab fa-twitter text-white text-sm"></i></a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors"><i
+                                        class="fab fa-youtube text-white text-sm"></i></a>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl">Contact Us</h3>
+                            T. +1 123 456 789<br>
+                            M. contact@aivent.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20">
+                <div class="container mx-auto max-w-[1240px] px-6">
+                    <div class="py-5">
+                        <div class="text-center text-white">
+                            Copyright 2025 - AIvent by Designesia
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <script src="src/main.js"></script>
+
+</body>
+
+</html>

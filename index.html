@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>AIVENT</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./src/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link href="/dist/styles.css" rel="stylesheet"> -->
+
+    <script src="./js/main.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+</head>
+
+<body class="bg-[]">
+ <section id="scroll-controls-section">
+        <!-- Scroll to Top Button -->
+        <div
+            class="fixed z-50 opacity-0 transition-all duration-300 ease-out left-4 top-1/2 transform -translate-y-1/2 scroll-to-top-container">
+            <div class="relative group cursor-pointer" onclick="scrollToTop()">
+                <div
+                    class="absolute inset-0 w-12 h-12 bg-primary rounded-full opacity-20 animate-pulse-glow group-hover:opacity-40 transition-all duration-300">
+                </div>
+                <div
+                    class="relative w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 animate-float">
+                    <i
+                        class="fas fa-arrow-up text-white text-sm group-hover:text-primary transition-colors duration-300"></i>
+                </div>
+                <div
+                    class="absolute left-16 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <div
+                        class="bg-dark-2/95 backdrop-blur-sm text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap border border-white/10">
+                        Scroll to top
+                        <div
+                            class="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-dark-2/95">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Progress Bar -->
+        <div
+            class="scrollbar-v bg-secondary fixed top-[calc(50%+60px)] left-[43px] w-0.5 transition-all duration-100 ease-linear min-h-0 z-[1000] opacity-0">
+            <div class="w-full bg-primary transition-all duration-100 ease-linear" style="height: 0%;"
+                id="scroll-progress"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: HEADER AND NAVIGATION -->
+    <section id="header-section">
+        <header class="fixed top-0 w-full z-[1000] transition-all duration-300" id="main-header">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <div id="logo">
+                            <a href="index.html">
+                                <img class="h-12 w-auto logo-main block" src="/assets/images/logo.webp" alt="">
+                                <img class="h-12 w-auto logo-scroll hidden" src="/assets/images/logo.webp" alt="">
+                                <img class="h-10 w-auto logo-mobile hidden lg:hidden" src="/assets/images/logo.webp"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex flex-1 justify-center">
+                        <nav id="mainmenu" class="flex items-center space-x-8">
+                            <!-- Home Dropdown -->
+                            <div class="relative group">
+                                <a href="index.html#section-hero"
+                                    class="menu-item text-white hover:text-primary transition-colors duration-300 flex items-center">
+                                    Home
+                                    <i
+                                        class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                                </a>
+                                <div
+                                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-screen max-w-6xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                    <div
+                                        class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl">
+                                        <div class="grid grid-cols-5 gap-6">
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index.html" class="block">
+                                                        <img src="./assets/images/demo/homepage-1.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 1">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 1</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-slider.html" class="block">
+                                                        <img src="./assets/images/demo/homepage-2.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 2">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 2</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="./assets/images/demo/homepage-3.webp" class="block">
+                                                        <img src="./src/img/homepage-3.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 3">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 3</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-slider-text.html" class="block">
+                                                        <img src="./assets/images/demo/homepage-4.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 4">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 4</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div
+                                                    class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-countdown.html" class="block">
+                                                        <img src="./assets/images/demo/homepage-5.webp"
+                                                            class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                                                            alt="Demo 5">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 5</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Regular Menu Items -->
+                            <a href="menu-item  index.html#section-about"
+                                class="menu-item text-white hover:text-primary transition-colors duration-300">About</a>
+                            <a href="menu-item index.html#section-why-attend"
+                                class="text-white hover:text-primary transition-colors duration-300">Why Attend</a>
+                            <a href="menu-item index.html#section-speakers"
+                                class="text-white hover:text-primary transition-colors duration-300">Speakers</a>
+                            <a href="menu-item index.html#section-schedule"
+                                class="text-white hover:text-primary transition-colors duration-300">Schedule</a>
+                            <a href="menu-item index.html#section-tickets"
+                                class="text-white hover:text-primary transition-colors duration-300">Tickets</a>
+                            <a href="menu-item index.html#section-venue"
+                                class="text-white hover:text-primary transition-colors duration-300">Venue</a>
+                            <a href="menu-item index.html#section-faq"
+                                class="text-white hover:text-primary transition-colors duration-300">FAQ</a>
+
+                            <!-- Pages Dropdown -->
+                            <div class="relative group">
+                                <a href="news.html"
+                                    class="text-white hover:text-primary transition-colors duration-300 flex items-center">
+                                    Pages
+                                    <i
+                                        class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                                </a>
+                                <div class="absolute bg-[#101435] top-full right-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                    <div
+                                        class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-4 shadow-2xl">
+                                        <a href="tickets.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Tickets
+                                            Style 1</a>
+                                        <a href="tickets-2.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Tickets
+                                            Style 2</a>
+                                        <a href="news.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">News</a>
+                                        <a href="news-single.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">News
+                                            Single</a>
+                                        <a href="contact.html"
+                                            class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- Right Side -->
+                    <div class="flex items-center">
+                        <a class="bg-[#101435] hover:bg-primary/80 text-white py-2 px-6 font-bold text-xs uppercase tracking-wider rounded-md transition-all duration-300 text-center hidden lg:inline-block fx-slide"
+                            href="tickets-2.html" data-hover="Buy Tickets">
+                            <span>Buy Tickets</span>
+                        </a>
+
+                        <!-- Mobile Menu Button -->
+                        <div class="menu_side_area ml-5 lg:hidden">
+                            <span id="menu-btn"
+                                class="cursor-pointer flex flex-col w-8 h-8 justify-center items-center space-y-1">
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line1"></span>
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line2"></span>
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line3"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <!-- SECTION 4: MOBILE MENU -->
+    <section id="mobile-menu-section">
+        <div id="mobile-menu" class="fixed inset-0 z-40 hidden lg:hidden" style="display: none;">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="menu-overlay"></div>
+
+            <!-- Menu Panel -->
+            <div class="absolute right-0 top-0 h-full w-80 bg-dark-1 border-l border-white/10 shadow-2xl"
+                id="menu-panel">
+                <!-- Close Button -->
+                <div class="flex justify-end p-6">
+                    <button id="close-menu-btn"
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+                        <i class="fas fa-times text-white text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="px-6 py-4">
+                    <nav class="space-y-4">
+                        <a href="index.html#section-hero"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-home mr-3 text-primary"></i>Home
+                        </a>
+                        <a href="index.html#section-about"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-info-circle mr-3 text-primary"></i>About
+                        </a>
+                        <a href="index.html#section-why-attend"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-star mr-3 text-primary"></i>Why Attend
+                        </a>
+                        <a href="index.html#section-speakers"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-users mr-3 text-primary"></i>Speakers
+                        </a>
+                        <a href="index.html#section-schedule"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-calendar mr-3 text-primary"></i>Schedule
+                        </a>
+                        <a href="index.html#section-tickets"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-ticket-alt mr-3 text-primary"></i>Tickets
+                        </a>
+                        <a href="index.html#section-venue"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>Venue
+                        </a>
+                        <a href="index.html#section-faq"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-question-circle mr-3 text-primary"></i>FAQ
+                        </a>
+                        <a href="news.html"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300 border-b border-white/10">
+                            <i class="fas fa-newspaper mr-3 text-primary"></i>News
+                        </a>
+                        <a href="contact.html"
+                            class="mobile-menu-item block text-white hover:text-primary text-xl font-semibold py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>Contact
+                        </a>
+                    </nav>
+
+                    <!-- CTA Button -->
+                    <div class="mt-8 pt-6 border-t border-white/20">
+                        <a class="mobile-menu-item bg-primary hover:bg-primary/80 text-white py-4 px-6 font-bold text-lg uppercase tracking-wider rounded-lg transition-all duration-300 text-center block"
+                            href="tickets-2.html">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            Buy Tickets
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-hero" class="relative h-screen min-h-[800px] bg-cover text-white  ">
+        <!--الخلفية-->
+        <div class="absolute h-full w-full overflow-hidden z-0">
+            <img src="./assets/images/background/5.webp" class="w-full h-full object-cover bg-cover " alt="البانر الاول ">
+            <div class="absolute inset-0 gradient-section-bottom"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-1/2  gradient-section-bottom"></div>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="container mx-auto px-4 h-full flex items-end pb-20 relative z-10">
+            <div class="w-full">
+                <!-- حاوية نسبية لتحديد مواضع العناصر الداخلية -->
+                <div class="relative">
+
+                    <!-- The Future -->
+
+                    <div class="text-left">
+                        <h1
+                            class="text-[50px] sm:text-[130px] lg:text-[10vw] uppercase mb-0 leading-none font-medium gradient-text">
+                            The Future</h1>
+                    </div>
+
+                    <!--  Intelligent -->
+
+                    <div class="lg:text-right">
+                        <h1
+                            class="text-[50px] sm:text-[12px] lg:text-[10vw] uppercase mb-4 leading-none font-medium gradient-text">
+                            Intelligent</h1>
+                    </div>
+
+               
+                    <div class="sm:relative lg:absolute top-0 right-0 lg:pt-20 wow fadeInRight" data-wow-delay="1.5s">
+                        <div class="flex items-start mb-8 lg:mb-4">
+                            <i class="text-5xl text-purple-500 icofont-google-map"></i>
+                            <div class="ml-3">
+                                <h4 class="text-xl mb-0">121 AI Blvd,
+                                    San Francisco BCA 94107</h4>
+                            </div>
+                        </div>
+                    </div>
+
+              
+                    <div class="w-full lg:absolute lg:bottom-0 lg:w-1/3 wow fadeInRight" data-wow-delay="1.5s">
+                        <p class="text-lg">Join thought leaders, developers, researchers, and founders as we explore how
+                            artificial intelligence is reshaping industries, creativity.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- About Section -->
+    <section id="section-about" class="  text-white py-20  relative px-4 ">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:pr-12">
+                    <div class="mb-6">
+                        <div class="inline-block text-sm font-semibold text-gray-400 mb-4" data-animate="fade-up">
+                            <span class="text-purple-500 font-bold">[</span> About the Event <span
+                                class="text-purple-500 font-bold">]</span>
+                        </div>
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text" data-animate="fade-up">
+                            A Global Gathering <br/> of AI Innovators
+                        </h2>
+                        <p class="text-gray-300 text-lg mb-8" data-animate="fade-up">
+                            Join thought leaders, developers, researchers, and founders as we explore how artificial
+                            intelligence is reshaping industries, creativity, and the future of work.
+                        </p>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-start" data-animate="fade-up">
+                                <i class="fas fa-check text-purple-500 mt-1 mr-4"></i>
+                                <span class="text-gray-300">5 days of keynotes, workshops, and networking</span>
+                            </li>
+                            <li class="flex items-start" data-animate="fade-up">
+                                <i class="fas fa-check text-purple-500 mt-1 mr-4"></i>
+                                <span class="text-gray-300">50 world-class speakers</span>
+                            </li>
+                            <li class="flex items-start" data-animate="fade-up">
+                                <i class="fas fa-check text-purple-500 mt-1 mr-4"></i>
+                                <span class="text-gray-300">Startup showcase and live demos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300" data-animate="scale-in">
+                        <div class="w-full  bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                            <a class="block p-0 " href="index-countdown.html">
+                                                <img src="./assets/images/misc/s1.webp" class="w-full h-auto transform hover:scale-110 transition duration-300 " alt="">
+                                            </a>
+                        </div>
+                        <div class="absolute  gradient-section-bottom"></div>
+                    </div>
+                    <div class="bg-purple-600 text-white p-8 rounded-lg text-center hover:scale-105 transition-transform duration-300" data-animate="scale-in">
+                        <h2 class="text-4xl font-bold mb-2">50</h2>
+                        <div class="text-sm">World-class Speakers</div>
+                    </div>
+                </div>
+                <div class="space-y-4 pt-12">
+                    <div class="bg-[#442490] text-white p-8 rounded-lg text-center hover:scale-105 transition-transform duration-300" data-animate="scale-in">
+                        <h2 class="text-4xl font-bold mb-2">5</h2>
+                        <div class="text-sm">Days of Event</div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300" data-animate="scale-in">
+                        <div class="w-full  bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center ">
+                             <a class="block p-0" href="index-countdown.html">
+                                                <img src="./assets/images/misc/s2.webp" class="w-full transform hover:scale-110 transition duration-300 " alt="">
+                                            </a>
+                        </div>
+                        <div class="absolute  gradient-section-bottom"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full overflow-hidden py-20 ">
+        <!-- First Marquee Bar -->
+        <div id="marquee-bar-1" class="marquee-bar-1 bg-gradient-1 text-white py-4 leading-none marquee-container">
+            <div class="marquee-content marquee-content-1" id="marquee-content-1">
+                <span class="text-6xl mx-3">Next Intelligence</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Future Now</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Empowering Innovation</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Smarter Tomorrow</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Think Forward</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Cognitive Shift</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <!-- Duplicate content for seamless loop -->
+                <span class="text-6xl mx-3">Next Intelligence</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Future Now</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Empowering Innovation</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Smarter Tomorrow</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Think Forward</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Cognitive Shift</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+            </div>
+        </div>
+
+        <!-- Second Marquee Bar -->
+        <div id="marquee-bar-2"
+            class="marquee-bar-2 bg-gradient-2 text-white py-4 leading-none marquee-container -mt-5">
+            <div class="marquee-content marquee-content-2" id="marquee-content-2">
+                <span class="text-6xl mx-3">Next Intelligence</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Future Now</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Empowering Innovation</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Smarter Tomorrow</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Think Forward</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Cognitive Shift</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <!-- Duplicate content for seamless loop -->
+                <span class="text-6xl mx-3">Next Intelligence</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Future Now</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Empowering Innovation</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Smarter Tomorrow</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Think Forward</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+                <span class="text-6xl mx-3">Cognitive Shift</span>
+                <span class="text-6xl mx-3 opacity-20">/</span>
+            </div>
+        </div>
+    </section>
+
+
+ 
+    <!-- Add spacing above section -->
+
+    <section id="section-why-attend" class=" text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Header Section -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+
+                <div class="inline-block  font-semibold text-2xl text-white-400 mb-3" data-animate="fade-up">
+                    <span class="text-purple-500 font-bold">[</span> Why Attend <span
+                        class="text-purple-500 font-bold">]</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 fade-in-up">
+                    What You'll Gain
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed fade-in-up">
+                    Hear from global AI pioneers, industry disruptors, and bold thinkers shaping the future across every
+                    domain.
+                </p>
+            </div>
+
+            <!-- Spacer -->
+            <div class="mb-12"></div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1: Cutting-Edge Knowledge -->
+                <div class="group card-hover scale-in">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80">
+                        <img src="./assets/images/misc/s3.webp" alt="Cutting-Edge Knowledge"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 gradient-overlay "></div>
+                        <div class="absolute inset-0 hover-overlay "></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                            <h4 class="text-xl font-bold mb-2 text-white">Cutting-Edge Knowledge</h4>
+                            <p class="text-gray-200 text-sm">Stay ahead of the curve with insights from AI leaders
+                                shaping tomorrow's technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Hands-On Learning -->
+                <div class="group card-hover scale-in ">
+                    <div
+                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80 ">
+                        <img src="./assets/images/misc/s4.webp" alt="Hands-On Learning"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 gradient-overlay"></div>
+                        <div class="absolute inset-0 hover-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                            <h4 class="text-xl font-bold mb-2 text-white">Hands-On Learning</h4>
+                            <p class="text-gray-200 text-sm">Join live workshops and labs to build practical skills in
+                                AI and machine learning.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Global Networking -->
+                <div class="group card-hover scale-in ">
+                    <div
+                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80 ">
+                        <img src="./assets/images/misc/s5.webp" alt="Global Networking"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 gradient-overlay"></div>
+                        <div class="absolute inset-0 hover-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                            <h4 class="text-xl font-bold mb-2 text-white">Global Networking</h4>
+                            <p class="text-gray-200 text-sm">Meet developers, founders, and researchers from around the
+                                world to collaborate and grow.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Startup Showcase -->
+                <div class="group card-hover scale-in ">
+                    <div
+                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80  ">
+                        <img src="./assets/images/misc/s6.webp" alt="Startup Showcase"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 gradient-overlay"></div>
+                        <div class="absolute inset-0 hover-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                            <h4 class="text-xl font-bold mb-2 text-white">Startup Showcase</h4>
+                            <p class="text-gray-200 text-sm">Explore the latest AI tools and ideas from promising
+                                startups and research labs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: AI Career Boost -->
+                <div class="group card-hover scale-in ">
+                    <div
+                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80 ">
+                        <img src="./assets/images/misc/s7.webp" alt="AI Career Boost"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 gradient-overlay"></div>
+                        <div class="absolute inset-0 hover-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                            <h4 class="text-xl font-bold mb-2 text-white">AI Career Boost</h4>
+                            <p class="text-gray-200 text-sm">Access exclusive job fairs, mentorship sessions, and
+                                recruiting events to grow your career.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Ethics & Future -->
+                <div class="group card-hover scale-in ">
+                    <div
+                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80">
+                        <img src="./assets/images/misc/s8.webp" alt="Ethics & Future"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 gradient-overlay"></div>
+                        <div class="absolute inset-0 hover-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                            <h4 class="text-xl font-bold mb-2 text-white">Ethics & Future</h4>
+                            <p class="text-gray-200 text-sm">Engage in vital conversations around AI ethics, policy, and
+                                the future of intelligence.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- ************* Elon Musk *********************** -->
+<section class="bg-gray-900 text-white pt-20 relative jarallax min-h-screen flex items-center" >
+         <img src="./assets/images/background/2.webp" class="absolute inset-0 w-full h-full object-cover z-0  jarallax " alt="Background">
+        <div class="absolute inset-0 bg-[#101435] opacity-60 z-0"></div>
+        <!-- Gradient edges -->
+        <div class="gradient-edge-top"></div>
+        <div class="gradient-edge-bottom"></div>
+        
+        <div class="sw-overlay"></div>
+    
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-12">
+                <div class="md:w-4/12 w-full">
+                    <div class="relative w-full inline-block pr-5">
+                        <!-- Quote icon overlay -->
+                        <div class="absolute -top-4 -right-2 quote-icon bg-[#764df0] w-20 h-20 rounded-lg flex items-center justify-center z-10 animate-scale-in">
+                            <i class="fas fa-quote-left text-white text-2xl"></i>
+                        </div>
+                        <img src="./assets/images/misc/s9.webp" class="w-full rounded-[30px] animate-scale-in-mask shadow-2xl"  alt="Speaker">
+                    </div>
+                </div>
+                
+                <!-- Content column -->
+                <div class="md:w-8/12 w-full">
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl mb-6 leading-relaxed animate-fade-in-up">
+                        "Artificial intelligence is advancing rapidly, and while it offers immense opportunity, it also poses significant risks. If not properly regulated and aligned with human values, AI could become a fundamental threat to civilization."
+                    </h3>
+                    <span class="text-lg text-gray-300 font-medium">Elon Musk</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- *************end Elon Musk *********************** -->
+<!-- ************* Speakers *********************** -->
+
+ <section class=" text-white py-16 px-4">
+    <div class="container mx-auto">
+        <div class="flex flex-wrap justify-center mb-12">
+            <div class="w-full lg:w-6/12 relative z-10 text-center">
+                <div class="mb-4">
+                              <div class="inline-block  font-semibold text-2xl text-white-400 mb-3" data-animate="fade-up">
+                    <span class="text-purple-500 font-bold">[</span> Speakers <span
+                        class="text-purple-500 font-bold">]</span>
+                </div>                    
+                  <h2 class="text-4xl font-bold mt-2 animate-fade-in-up" style="animation-delay: 0.2s;">Meet the Visionaries</h2>
+                    <p class="text-lg mt-4 animate-fade-in-up">Whether it's a quick refresh or a deep clean transformation, our expert touch leaves your home or office shining.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 hover:scale-105  ">
+                    <img src="./assets/images/3 (3).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
+                    <div class="absolute inset-0  transition-all duration-1000 gradient-Speakers-color"></div>
+                    <div class="absolute bottom-0 left-0 w-full z-10 p-4">
+                        <div class="backdrop-blur-sm bg-white/20 p-4 rounded-lg text-center relative z-20">
+                            <h3 class='text-xl font-semibold mb-1'>Joshua Henry</h3>
+                            <span class='text-sm text-gray-300'>Chief AI Scientist, OpenAI</span>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 hover:scale-105">
+                    <img src="./assets/images/2 (3).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
+                    <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                    <div class="absolute bottom-0 left-0 w-full z-10 p-4">
+                        <div class="backdrop-blur-sm bg-white/20 p-4 rounded-lg text-center relative z-20">
+                            <h3 class='text-xl font-semibold mb-1'>Leila Zhang</h3>
+                            <span class='text-sm text-gray-300'>VP of Machine Learning, Google</span>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 hover:scale-105">
+                    <img src="./assets/images/1 (1).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
+                    <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                    <div class="absolute bottom-0 left-0 w-full z-10 p-4">
+                        <div class="backdrop-blur-sm bg-white/20 p-4 rounded-lg text-center relative z-20">
+                            <h3 class='text-xl font-semibold mb-1'>Carlos Rivera</h3>
+                            <span class='text-sm text-gray-300'>Founder &amp; CEO, NeuralCore</span>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- *************end Speakers *********************** -->
+ <!-- ************* logo slider *********************** -->
+ <section class="relative bg-gray-900 py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent opacity-75"></div>
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="container mx-auto relative z-10">
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4">
+                <div class="relative overflow-hidden">
+                    <div id="logo-slider" class="flex items-center whitespace-nowrap">
+                        <img src="./assets/images/logo-light/1.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/2.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/3.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/4.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/5.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/6.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/7.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/8.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/9.webp" class="w-40 px-4 inline-block" alt="">
+                        <img src="./assets/images/logo-light/10.webp" class="w-40 px-4 inline-block" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute inset-0 z-0 bg-attachment-fixed" style="background-image: url('./assets/images/background/1.webp'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
+    <div class="absolute gradient-edge-top"></div>
+    <div class="absolute   gradient-edge-bottom"></div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ************* end logo slider *********************** -->
+    <!-- إضافة أنيميشن في CSS -->
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+ <script src="./src/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Create timeline for entrance animations
+            const tl = gsap.timeline();
+
+            // First text content enters from left to right into fixed div
+            tl.to("#marquee-content-1", {
+                duration: 1,
+                x: "0%",
+                ease: "power2.out"
+            })
+                // Second text content enters from right to left after 1 second into fixed div
+                .to("#marquee-content-2", {
+                    duration: 1.5,
+                    x: "0%",
+                    ease: "power2.out"
+                }, "+=1");
+
+            // Start continuous marquee animations after entrance is complete
+            tl.call(() => {
+                startMarqueeAnimations();
+            });
+
+            function startMarqueeAnimations() {
+                // Get content widths for seamless loop calculation
+                const content1 = document.getElementById('marquee-content-1');
+                const content2 = document.getElementById('marquee-content-2');
+
+                const content1Width = content1.scrollWidth / 2; // Divide by 2 because we duplicated content
+                const content2Width = content2.scrollWidth / 2;
+
+                // Animate first marquee (left to right)
+                gsap.fromTo(content1,
+                    { x: 0 },
+                    {
+                        x: -content1Width,
+                        duration: 30,
+                        ease: "none",
+                        repeat: -1
+                    }
+                );
+
+                // Animate second marquee (right to left)
+                gsap.fromTo(content2,
+                    { x: -content2Width },
+                    {
+                        x: 0,
+                        duration: 30,
+                        ease: "none",
+                        repeat: -1
+                    }
+                );
+            }
+
+            // Optional: Pause animations on scroll (as mentioned in your requirement)
+            let isScrolling = false;
+            let scrollTimeout;
+
+            window.addEventListener('scroll', function () {
+                if (!isScrolling) {
+                    // Pause all GSAP animations
+                    gsap.globalTimeline.pause();
+                    isScrolling = true;
+                }
+
+                // Clear timeout and set new one
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function () {
+                    // Resume animations after scrolling stops
+                    gsap.globalTimeline.play();
+                    isScrolling = false;
+                }, 10);
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

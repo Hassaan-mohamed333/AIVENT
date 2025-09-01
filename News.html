@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AIvent - AI Event, Conference and Meetup Website Template</title>
+    <link rel="icon" href="/assets/images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="AIvent" name="description">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#764DF0',
+                        secondary: '#442490',
+                        dark: {
+                            1: '#101435',
+                            2: '#1A1E42',
+                            3: '#1e1e1e'
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Manrope', 'sans-serif'],
+                        'body': ['Manrope', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'primary-gradient': 'linear-gradient(0deg, rgba(118, 77, 240, 1) 0%, rgba(118, 77, 240, 0) 100%)',
+                        'gradient-bottom': 'linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%)',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(180deg)' }
+                        },
+                        'pulse-glow': {
+                            '0%': { boxShadow: '0 0 5px rgba(118, 77, 240, 0.3)' },
+                            '100%': { boxShadow: '0 0 20px rgba(118, 77, 240, 0.8), 0 0 30px rgba(118, 77, 240, 0.4)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px;
+        }
+
+        .fx-slide {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fx-slide:before {
+            content: attr(data-hover);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #442490;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .fx-slide:hover:before {
+            transform: translateY(0);
+        }
+
+        .fx-slide span {
+            position: relative;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .fx-slide:hover span {
+            opacity: 0;
+        }
+
+        .news-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .news-card img {
+            transition: transform 0.4s ease;
+        }
+
+        .news-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .jarallax {
+            position: relative;
+            z-index: 0;
+        }
+
+        .jarallax > .jarallax-img {
+            position: absolute;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: -1;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(118, 77, 240, 0.9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: rgba(118, 77, 240, 1);
+            transform: translateY(-2px);
+        }
+
+        .pagination .page-link {
+            transition: all 0.3s ease;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #764DF0;
+            border-color: #764DF0;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #764DF0;
+            border-color: #764DF0;
+            color: white;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+
+<body class="bg-dark-1 text-white">
+    <div id="wrapper">
+        <!-- Scroll to Top Button -->
+        <div class="scroll-to-top" id="scrollToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+
+        <!-- Scroll Progress Bar -->
+        <div class="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
+            <div class="h-full bg-primary transition-all duration-100 ease-linear" style="width: 0%;" id="scroll-progress"></div>
+        </div>
+
+        <!-- Page Preloader -->
+        <div id="de-loader" class="fixed inset-0 bg-dark-1 flex items-center justify-center z-[20000]">
+            <div class="relative w-20 h-5">
+                <div class="absolute w-4 h-4 bg-primary rounded-full animate-bounce" style="left: 0px; animation-delay: -0.32s;"></div>
+                <div class="absolute w-4 h-4 bg-primary rounded-full animate-bounce" style="left: 32px; animation-delay: -0.16s;"></div>
+                <div class="absolute w-4 h-4 bg-primary rounded-full animate-bounce" style="left: 64px;"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="fixed top-0 w-full z-[1000] transition-all duration-500" id="main-header">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <div id="logo">
+                            <a href="index.html">
+                                <img class="h-12 w-auto logo-main block" src="/assets/images/logo.webp" alt="">
+                                <img class="h-12 w-auto logo-scroll hidden" src="/assets/images/logo.webp" alt="">
+                                <img class="h-10 w-auto logo-mobile hidden lg:hidden" src="/assets/images/logo.webp" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex flex-1 justify-center">
+                        <nav id="mainmenu" class="flex items-center space-x-8">
+                            <!-- Home Dropdown -->
+                            <div class="relative group">
+                                <a href="index.html#section-hero" class="text-white hover:text-primary transition-colors duration-300 flex items-center">
+                                    Home
+                                    <i class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                                </a>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-screen max-w-6xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                    <div class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl">
+                                        <div class="grid grid-cols-5 gap-6">
+                                            <div class="text-center">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-1.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 1">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 1</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-slider.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-2.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 2">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 2</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-static-background.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-3.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 3">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 3</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-slider-text.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-4.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 4">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 4</h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                    <a href="index-countdown.html" class="block">
+                                                        <img src="/assets/images/demo/homepage-5.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 5">
+                                                    </a>
+                                                </div>
+                                                <h6 class="mt-3 text-white text-sm">Demo 5</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Regular Menu Items -->
+                            <a href="index.html#section-about" class="text-white hover:text-primary transition-colors duration-300">About</a>
+                            <a href="index.html#section-why-attend" class="text-white hover:text-primary transition-colors duration-300">Why Attend</a>
+                            <a href="index.html#section-speakers" class="text-white hover:text-primary transition-colors duration-300">Speakers</a>
+                            <a href="index.html#section-schedule" class="text-white hover:text-primary transition-colors duration-300">Schedule</a>
+                            <a href="index.html#section-tickets" class="text-white hover:text-primary transition-colors duration-300">Tickets</a>
+                            <a href="index.html#section-venue" class="text-white hover:text-primary transition-colors duration-300">Venue</a>
+                            <a href="index.html#section-faq" class="text-white hover:text-primary transition-colors duration-300">FAQ</a>
+
+                            <!-- Pages Dropdown -->
+                            <div class="relative group">
+                                <a href="news.html" class="text-white hover:text-primary transition-colors duration-300 flex items-center">
+                                    Pages
+                                    <i class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                                </a>
+                                <div class="absolute top-full right-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                    <div class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-4 shadow-2xl">
+                                        <a href="tickets.html" class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Tickets Style 1</a>
+                                        <a href="tickets-2.html" class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Tickets Style 2</a>
+                                        <a href="news.html" class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">News</a>
+                                        <a href="news-single.html" class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">News Single</a>
+                                        <a href="contact.html" class="block px-4 py-2 text-white hover:text-primary hover:bg-white/5 rounded-lg transition-all duration-300">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- Right Side -->
+                    <div class="flex items-center">
+                        <a class="bg-primary hover:bg-primary/80 text-white py-2 px-6 font-bold text-xs uppercase tracking-wider rounded-md transition-all duration-300 text-center hidden lg:inline-block fx-slide"
+                            href="tickets-2.html" data-hover="Buy Tickets">
+                            <span>Buy Tickets</span>
+                        </a>
+
+                        <!-- Mobile Menu Button -->
+                        <div class="menu_side_area ml-5 lg:hidden">
+                            <span id="menu-btn" class="cursor-pointer flex flex-col w-8 h-8 justify-center items-center space-y-1">
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line1"></span>
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line2"></span>
+                                <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line3"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu" class="fixed inset-0 bg-dark-1/95 backdrop-blur-sm z-40 opacity-0 invisible transition-all duration-300 lg:hidden">
+                <div class="flex flex-col items-center justify-center h-full space-y-8">
+                    <a href="index.html#section-hero" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Home</a>
+                    <a href="index.html#section-about" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">About</a>
+                    <a href="index.html#section-why-attend" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Why Attend</a>
+                    <a href="index.html#section-speakers" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Speakers</a>
+                    <a href="index.html#section-schedule" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Schedule</a>
+                    <a href="index.html#section-tickets" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Tickets</a>
+                    <a href="index.html#section-venue" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Venue</a>
+                    <a href="index.html#section-faq" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">FAQ</a>
+                    <a href="news.html" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">News</a>
+                    <a href="contact.html" class="text-white hover:text-primary text-2xl font-bold transition-colors duration-300" onclick="closeMobileMenu()">Contact</a>
+                    
+                    <div class="pt-8">
+                        <a class="bg-primary hover:bg-primary/80 text-white py-3 px-8 font-bold text-sm uppercase tracking-wider rounded-md transition-all duration-300 text-center fx-slide"
+                            href="tickets-2.html" data-hover="Buy Tickets" onclick="closeMobileMenu()">
+                            <span>Buy Tickets</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="section-hero" class="relative min-h-[500px] jarallax overflow-hidden" style="z-index: 0;">
+            <img src="/assets/images/background/3.webp" class="jarallax-img object-cover w-full h-full" alt="">
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-bottom"></div>
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            
+            <div class="absolute bottom-10 left-0 w-full z-20">
+                <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-wrap items-center justify-between gap-6 lg:gap-12">
+                        <div class="w-full lg:w-1/2">
+                            <div class="relative">
+                                <div class="text-left">
+                                    <h1 id="hero-title" class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase mb-0 leading-none font-bold text-white">
+                                        News
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/3" id="hero-subtitle">
+                            <p class="mb-0 text-gray-200 text-lg leading-relaxed">
+                                Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid Section -->
+        <section class="py-20 bg-dark-1">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="news-grid">
+                    <!-- News Card 1 -->
+                    <div class="news-card">
+                        <a href="news-single.html" class="block relative rounded-2xl overflow-hidden text-white group">
+                            <div class="absolute top-4 left-4 z-20 bg-primary rounded-lg text-white p-3 text-center font-semibold">
+                                <h4 class="text-3xl mb-0 leading-none">28</h4>
+                                <span class="text-sm">May</span>
+                            </div>
+
+                            <div class="relative overflow-hidden">
+                                <img src="/assets/images/news/s1.webp" class="w-full h-64 object-cover" alt="">
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                <h4 class="text-xl font-bold leading-tight">The AI Conference 2025 Set to Discuss AGI and Neural Architectures in SF</h4>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-bottom"></div>
+                        </a>
+                    </div>
+
+                    <!-- News Card 2 -->
+                    <div class="news-card">
+                        <a href="news-single.html" class="block relative rounded-2xl overflow-hidden text-white group">
+                            <div class="absolute top-4 left-4 z-20 bg-primary rounded-lg text-white p-3 text-center font-semibold">
+                                <h4 class="text-3xl mb-0 leading-none">27</h4>
+                                <span class="text-sm">May</span>
+                            </div>
+
+                            <div class="relative overflow-hidden">
+                                <img src="/assets/images/news/s2.webp" class="w-full h-64 object-cover" alt="">
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                <h4 class="text-xl font-bold leading-tight">Tony Blair Advocates for AI Integration in UK Healthcare and Education</h4>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-bottom"></div>
+                        </a>
+                    </div>
+
+                    <!-- News Card 3 -->
+                    <div class="news-card">
+                        <a href="news-single.html" class="block relative rounded-2xl overflow-hidden text-white group">
+                            <div class="absolute top-4 left-4 z-20 bg-primary rounded-lg text-white p-3 text-center font-semibold">
+                                <h4 class="text-3xl mb-0 leading-none">26</h4>
+                                <span class="text-sm">May</span>
+                            </div>
+
+                            <div class="relative overflow-hidden">
+                                <img src="/assets/images/news/s3.webp" class="w-full h-64 object-cover" alt="">
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                <h4 class="text-xl font-bold leading-tight">Apple's WWDC 2025 Faces Low Investor Expectations Over Siri AI Delay</h4>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-bottom"></div>
+                        </a>
+                    </div>
+
+                    <!-- News Card 4 -->
+                    <div class="news-card">
+                        <a href="news-single.html" class="block relative rounded-2xl overflow-hidden text-white group">
+                            <div class="absolute top-4 left-4 z-20 bg-primary rounded-lg text-white p-3 text-center font-semibold">
+                                <h4 class="text-3xl mb-0 leading-none">25</h4>
+                                <span class="text-sm">May</span>
+                            </div>
+
+                            <div class="relative overflow-hidden">
+                                <img src="/assets/images/news/s4.webp" class="w-full h-64 object-cover" alt="">
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                <h4 class="text-xl font-bold leading-tight">NYC Tech Week Highlights Human Skills' Value in AI-Dominated Discussions</h4>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-bottom"></div>
+                        </a>
+                    </div>
+
+                    <!-- News Card 5 -->
+                    <div class="news-card">
+                        <a href="news-single.html" class="block relative rounded-2xl overflow-hidden text-white group">
+                            <div class="absolute top-4 left-4 z-20 bg-primary rounded-lg text-white p-3 text-center font-semibold">
+                                <h4 class="text-3xl mb-0 leading-none">24</h4>
+                                <span class="text-sm">May</span>
+                            </div>
+
+                            <div class="relative overflow-hidden">
+                                <img src="/assets/images/news/s5.webp" class="w-full h-64 object-cover" alt="">
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                <h4 class="text-xl font-bold leading-tight">Data + AI Summit 2025 to Explore Data Engineering and Machine Learning</h4>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-bottom"></div>
+                        </a>
+                    </div>
+
+                    <!-- News Card 6 -->
+                    <div class="news-card">
+                        <a href="news-single.html" class="block relative rounded-2xl overflow-hidden text-white group">
+                            <div class="absolute top-4 left-4 z-20 bg-primary rounded-lg text-white p-3 text-center font-semibold">
+                                <h4 class="text-3xl mb-0 leading-none">23</h4>
+                                <span class="text-sm">May</span>
+                            </div>
+
+                            <div class="relative overflow-hidden">
+                                <img src="/assets/images/news/s6.webp" class="w-full h-64 object-cover" alt="">
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                <h4 class="text-xl font-bold leading-tight">World Summit AI 2025 in Amsterdam to Focus on Generative AI Trends</h4>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-bottom"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pt-16 flex justify-center" id="pagination">
+                    <nav aria-label="Page navigation">
+                        <ul class="flex items-center space-x-2">
+                            <li>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 text-white bg-primary border border-primary rounded-lg">2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 text-white bg-dark-2 border border-white/20 rounded-lg hover:bg-primary hover:border-primary transition-all duration-300">3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 text-white bg-dark-2 border border-white/20 rounded-lg hover:bg-primary hover:border-primary transition-all duration-300">
+                                    <i class="fas fa-chevron-right text-sm"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white bg-dark-1 border-t border-white/10">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="py-16">
+                <div class="text-center lg:flex lg:items-center lg:justify-between lg:text-left">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Address</h3>
+                        <p>121 AI Blvd, San Francisco<br>BCA 94107</p>
+                    </div>
+                    <div class="my-8 lg:my-0">
+                        <img src="/assets/images/logo.webp" class="w-[150px] mx-auto" alt="">
+                        <div class="flex justify-center space-x-2 mt-4">
+                            <a href="#" class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors">
+                                <i class="fab fa-facebook-f text-white text-sm"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors">
+                                <i class="fab fa-instagram text-white text-sm"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors">
+                                <i class="fab fa-twitter text-white text-sm"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-primary rounded flex items-center justify-center hover:bg-primary/80 transition-colors">
+                                <i class="fab fa-youtube text-white text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                        <p>T. +1 123 456 789<br>M. contact@aivent.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/20">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="py-5">
+                    <div class="text-center text-white">
+                        Copyright 2025 - AIvent by Designesia
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize GSAP and ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // Preloader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('de-loader');
+            gsap.to(loader, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                    loader.style.display = 'none';
+                }
+            });
+        });
+
+        // Header animations and scroll effects
+        function initializeHeader() {
+            const header = document.getElementById('main-header');
+            
+            // Header scroll effect
+            ScrollTrigger.create({
+                trigger: "body",
+                start: "100px top",
+                end: "bottom bottom",
+                onToggle: self => {
+                    if (self.isActive) {
+                        header.classList.add('bg-dark-1/95', 'backdrop-blur-md');
+                    } else {
+                        header.classList.remove('bg-dark-1/95', 'backdrop-blur-md');
+                    }
+                }
+            });
+
+            // Header entrance animation
+            gsap.fromTo(header,
+                { y: -100, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.5 }
+            );
+
+            // Menu items animation
+            gsap.fromTo("#mainmenu a",
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1, delay: 1 }
+            );
+        }
+
+        // Mobile menu functionality
+        function initializeMobileMenu() {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    toggleMobileMenu();
+                });
+            }
+
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', (e) => {
+                    if (e.target === mobileMenu) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const isOpen = !mobileMenu.classList.contains('invisible');
+            
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        }
+
+        function openMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+
+            if (mobileMenu) {
+                mobileMenu.classList.remove('invisible', 'opacity-0');
+                mobileMenu.classList.add('visible', 'opacity-100');
+                document.body.style.overflow = 'hidden';
+                
+                gsap.to(line1, { rotation: 45, y: 6, duration: 0.3, ease: "power2.out" });
+                gsap.to(line2, { opacity: 0, duration: 0.2, ease: "power2.out" });
+                gsap.to(line3, { rotation: -45, y: -6, duration: 0.3, ease: "power2.out" });
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+
+            if (mobileMenu) {
+                mobileMenu.classList.remove('visible', 'opacity-100');
+                mobileMenu.classList.add('invisible', 'opacity-0');
+                document.body.style.overflow = '';
+                
+                gsap.to(line1, { rotation: 0, y: 0, duration: 0.3, ease: "power2.out" });
+                gsap.to(line2, { opacity: 1, duration: 0.2, ease: "power2.out", delay: 0.1 });
+                gsap.to(line3, { rotation: 0, y: 0, duration: 0.3, ease: "power2.out" });
+            }
+        }
+
+        // Hero section animations
+        function initializeHeroAnimations() {
+            const heroTitle = document.getElementById('hero-title');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+
+            // Title animation
+            gsap.fromTo(heroTitle,
+                { x: -100, opacity: 0 },
+                { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 1.5 }
+            );
+
+            // Subtitle animation
+            gsap.fromTo(heroSubtitle,
+                { x: 100, opacity: 0 },
+                { x: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 1.8 }
+            );
+        }
+
+        // News cards animations with ScrollTrigger
+        function initializeNewsAnimations() {
+            // Animate news cards on scroll
+            ScrollTrigger.batch(".news-card", {
+                onEnter: (elements) => {
+                    elements.forEach((element, index) => {
+                        gsap.fromTo(element, 
+                            { y: 80, opacity: 0, scale: 0.9 },
+                            { 
+                                y: 0, 
+                                opacity: 1, 
+                                scale: 1,
+                                duration: 0.8,
+                                delay: index * 0.1,
+                                ease: "power3.out"
+                            }
+                        );
+                    });
+                },
+                start: "top 85%",
+                once: true
+            });
+
+            // Animate pagination
+            ScrollTrigger.create({
+                trigger: "#pagination",
+                start: "top 90%",
+                onEnter: () => {
+                    gsap.fromTo("#pagination",
+                        { y: 30, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+                    );
+                },
+                once: true
+            });
+        }
+
+        // Scroll progress bar
+        function initializeScrollProgress() {
+            const progressBar = document.getElementById('scroll-progress');
+            
+            ScrollTrigger.create({
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                onUpdate: self => {
+                    const progress = self.progress * 100;
+                    gsap.to(progressBar, { 
+                        width: progress + '%', 
+                        duration: 0.1, 
+                        ease: "none" 
+                    });
+                }
+            });
+        }
+
+        // Scroll to top functionality
+        function initializeScrollToTop() {
+            const scrollBtn = document.getElementById('scrollToTop');
+            
+            ScrollTrigger.create({
+                trigger: "body",
+                start: "200px top",
+                end: "bottom bottom",
+                onToggle: self => {
+                    if (self.isActive) {
+                        scrollBtn.classList.add('show');
+                    } else {
+                        scrollBtn.classList.remove('show');
+                    }
+                }
+            });
+
+            scrollBtn.addEventListener('click', () => {
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: { y: 0 },
+                    ease: "power3.inOut"
+                });
+            });
+        }
+
+        // Parallax effect for hero background
+        function initializeParallax() {
+            const parallaxImage = document.querySelector('.jarallax-img');
+            
+            if (parallaxImage) {
+                ScrollTrigger.create({
+                    trigger: "#section-hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1,
+                    onUpdate: self => {
+                        const yPos = -(self.progress * 20);
+                        gsap.set(parallaxImage, { y: yPos + '%' });
+                    }
+                });
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+
+                    if (target) {
+                        gsap.to(window, {
+                            duration: 1.5,
+                            scrollTo: { y: target, offsetY: 100 },
+                            ease: "power3.inOut"
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize all animations and functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeHeader();
+            initializeMobileMenu();
+            initializeHeroAnimations();
+            initializeNewsAnimations();
+            initializeScrollProgress();
+            initializeScrollToTop();
+            initializeParallax();
+            initializeSmoothScrolling();
+
+            // Refresh ScrollTrigger after all animations are set up
+            ScrollTrigger.refresh();
+        });
+
+        // Handle resize events
+        window.addEventListener('resize', () => {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+
+</html>
