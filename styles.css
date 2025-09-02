@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Manrope", Helvetica, Arial, sans-serif;
-}  */
+} 
    :root {
     --color-gray: #888888;
     --color-white: #ffffff;
@@ -348,7 +348,7 @@ h1 , h2 {
             top: 0;
             left: 0;
             right: 0;
-            height: 100px;
+                height: 30%;
             background: linear-gradient(to bottom, #101435, transparent);
             z-index: 2;
         }
@@ -357,7 +357,7 @@ h1 , h2 {
             bottom: 0;
             left: 0;
             right: 0;
-            height: 100px;
+                height: 30%;
             background: linear-gradient(to top, #101435, transparent);
             z-index: 2;
         }
@@ -469,5 +469,14 @@ opacity: 0;
             color: #E5E7EB; /* gray-200 */
         }
     /* ************* end section-schedule ***********************   */
+
+    /* ************* section-tickets ***********************   */
+    .tickets-img {
+             box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    }
+           
+
+
+    /* ************* end section-tickets ***********************   */
 
 
