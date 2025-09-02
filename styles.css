@@ -450,5 +450,24 @@ opacity: 0;
 }
  /* *************end Speakers ***********************  */
 
+.attachment{
+    background-attachment: fixed;
+    background-size: cover;
+}
+/* ************* section-schedule ***********************   */
+.tab-nav-item.active {
+            color: #ffffff;
+            border-color: #6366F1; /* indigo-500 */
+        }
+        /* ستايل للتبويب غير النشط */
+        .tab-nav-item {
+            color: #9CA3AF; /* gray-400 */
+            border-color: transparent;
+            transition: all 0.3s ease;
+        }
+        .tab-nav-item:hover {
+            color: #E5E7EB; /* gray-200 */
+        }
+    /* ************* end section-schedule ***********************   */
 
 
