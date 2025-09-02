@@ -194,11 +194,17 @@
 
                     <!-- Right Side -->
                     <div class="flex items-center">
-                        <a class="bg-[#101435] hover:bg-primary/80 text-white py-2 px-6 font-bold text-xs uppercase tracking-wider rounded-md transition-all duration-300 text-center hidden lg:inline-block fx-slide"
-                            href="tickets-2.html" data-hover="Buy Tickets">
-                            <span>Buy Tickets</span>
-                        </a>
 
+        <a href="tickets-2.html" class="group bg-[#101435] text-white font-semibold py-3 px-6 rounded-lg text-center block w-full relative overflow-hidden">
+            <span class="block transition-all duration-300 ease-in-out group-hover:translate-y-10 group-hover:opacity-0">
+                Buy Tickets
+            </span>
+            <span class="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out opacity-0 -translate-y-full group-hover:opacity-100 group-hover:bg-[#442490] group-hover:translate-y-0">
+                Buy Tickets
+            </span>
+        </a>
+
+       
                         <!-- Mobile Menu Button -->
                         <div class="menu_side_area ml-5 lg:hidden">
                             <span id="menu-btn"
@@ -300,7 +306,7 @@
         <!-- المحتوى الرئيسي -->
         <div class="container mx-auto px-4 h-full flex items-end pb-20 relative z-10">
             <div class="w-full">
-                <!-- حاوية نسبية لتحديد مواضع العناصر الداخلية -->
+               
                 <div class="relative">
 
                     <!-- The Future -->
@@ -342,6 +348,7 @@
     </section>
 
     <!-- About Section -->
+     
     <!-- About Section -->
     <section id="section-about" class="  text-white py-20  relative px-4 ">
         <div class="container mx-auto px-4">
@@ -379,10 +386,10 @@
 
                  <div class="grid grid-cols-2 gap-4">
                 <div class="space-y-4">
-                    <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300" data-animate="scale-in">
-                        <div class="w-full  bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                    <div class="relative overflow-hidden rounded-lg  transition-transform  duration-300" data-animate="scale-in">
+                        <div class="w-full  bg-gradient-to-br from-purple-600 to-blue-600 flex hover  items-center justify-center">
                             <a class="block p-0 " href="index-countdown.html">
-                                                <img src="./assets/images/misc/s1.webp" class="w-full h-auto transform hover:scale-110 transition duration-300 " alt="">
+                                                <img src="./assets/images/misc/s1.webp" class="w-full h-auto transform   transition-all duration-1000 group-hover:scale-110 " alt="">
                                             </a>
                         </div>
                         <div class="absolute  gradient-section-bottom"></div>
@@ -400,7 +407,7 @@
                     <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300" data-animate="scale-in">
                         <div class="w-full  bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center ">
                              <a class="block p-0" href="index-countdown.html">
-                                                <img src="./assets/images/misc/s2.webp" class="w-full transform hover:scale-110 transition duration-300 " alt="">
+                                                <img src="./assets/images/misc/s2.webp" class="w-full transform  transition-all duration-1000 group-hover:scale-110 " alt="">
                                             </a>
                         </div>
                         <div class="absolute  gradient-section-bottom"></div>
@@ -506,10 +513,10 @@
 
                 <!-- Card 1: Cutting-Edge Knowledge -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative  hover-bg-primary transform transition-all duration-300 h-80">
                         <img src="./assets/images/misc/s3.webp" alt="Cutting-Edge Knowledge"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 gradient-overlay "></div>
+                            class="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 gradient-Speakers-color "></div>
                         <div class="absolute inset-0 hover-overlay "></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl font-bold mb-2 text-white">Cutting-Edge Knowledge</h4>
@@ -522,10 +529,10 @@
                 <!-- Card 2: Hands-On Learning -->
                 <div class="group card-hover scale-in ">
                     <div
-                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80 ">
+                        class="bg-dark-2 rounded-lg overflow-hidden relative  hover-bg-primary transform transition-all duration-300 h-80 ">
                         <img src="./assets/images/misc/s4.webp" alt="Hands-On Learning"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 gradient-overlay"></div>
+                            class="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl font-bold mb-2 text-white">Hands-On Learning</h4>
@@ -538,10 +545,10 @@
                 <!-- Card 3: Global Networking -->
                 <div class="group card-hover scale-in ">
                     <div
-                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80 ">
+                        class="bg-dark-2 rounded-lg overflow-hidden relative  hover-bg-primary transform transition-all duration-300 h-80 ">
                         <img src="./assets/images/misc/s5.webp" alt="Global Networking"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 gradient-overlay"></div>
+                            class="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl font-bold mb-2 text-white">Global Networking</h4>
@@ -554,10 +561,10 @@
                 <!-- Card 4: Startup Showcase -->
                 <div class="group card-hover scale-in ">
                     <div
-                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80  ">
+                        class="bg-dark-2 rounded-lg overflow-hidden relative  hover-bg-primary transform transition-all duration-300 h-80  ">
                         <img src="./assets/images/misc/s6.webp" alt="Startup Showcase"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 gradient-overlay"></div>
+                            class="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl font-bold mb-2 text-white">Startup Showcase</h4>
@@ -570,10 +577,10 @@
                 <!-- Card 5: AI Career Boost -->
                 <div class="group card-hover scale-in ">
                     <div
-                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80 ">
+                        class="bg-dark-2 rounded-lg overflow-hidden relative  hover-bg-primary transform transition-all duration-300 h-80 ">
                         <img src="./assets/images/misc/s7.webp" alt="AI Career Boost"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 gradient-overlay"></div>
+                            class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl font-bold mb-2 text-white">AI Career Boost</h4>
@@ -586,10 +593,10 @@
                 <!-- Card 6: Ethics & Future -->
                 <div class="group card-hover scale-in ">
                     <div
-                        class="bg-dark-2 rounded-lg overflow-hidden relative hover-scale hover-bg-primary transform transition-all duration-300 h-80">
+                        class="bg-dark-2 rounded-lg overflow-hidden relative  hover-bg-primary transform transition-all duration-300 h-80">
                         <img src="./assets/images/misc/s8.webp" alt="Ethics & Future"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 gradient-overlay"></div>
+                            class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl font-bold mb-2 text-white">Ethics & Future</h4>
@@ -605,7 +612,7 @@
 
 <!-- ************* Elon Musk *********************** -->
 <section class="bg-gray-900 text-white pt-20 relative jarallax min-h-screen flex items-center" >
-         <img src="./assets/images/background/2.webp" class="absolute inset-0 w-full h-full object-cover z-0  jarallax " alt="Background">
+         <img src="./assets/images/background/2.webp" class="absolute inset-0 w-full h-full object-cover z-0  jarallax attachment fixed" alt="Background" style="background-attachment: fixed; background-size: cover; background-position: center; ">
         <div class="absolute inset-0 bg-[#101435] opacity-60 z-0"></div>
         <!-- Gradient edges -->
         <div class="gradient-edge-top"></div>
@@ -618,10 +625,10 @@
                 <div class="md:w-4/12 w-full">
                     <div class="relative w-full inline-block pr-5">
                         <!-- Quote icon overlay -->
-                        <div class="absolute -top-4 -right-2 quote-icon bg-[#764df0] w-20 h-20 rounded-lg flex items-center justify-center z-10 animate-scale-in">
+                        <div class="absolute -top-4 -right-2 quote-icon bg-[#764df0] w-20 h-20 rounded-lg flex items-center justify-center z-10 n">
                             <i class="fas fa-quote-left text-white text-2xl"></i>
                         </div>
-                        <img src="./assets/images/misc/s9.webp" class="w-full rounded-[30px] animate-scale-in-mask shadow-2xl"  alt="Speaker">
+                        <img src="./assets/images/misc/s9.webp" class="w-full rounded-[30px] animate-scale-in-mask shadow-2xl hover:scale-105  duration-300"  alt="Speaker">
                     </div>
                 </div>
                 
@@ -656,7 +663,7 @@
 
         <div class="flex flex-wrap -mx-4">
             <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 hover:scale-105  ">
+                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000   ">
                     <img src="./assets/images/3 (3).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
                     <div class="absolute inset-0  transition-all duration-1000 gradient-Speakers-color"></div>
                     <div class="absolute bottom-0 left-0 w-full z-10 p-4">
@@ -670,7 +677,7 @@
             </div>
 
             <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 hover:scale-105">
+                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 ">
                     <img src="./assets/images/2 (3).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
                     <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
                     <div class="absolute bottom-0 left-0 w-full z-10 p-4">
@@ -684,7 +691,7 @@
             </div>
 
             <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 hover:scale-105">
+                <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 ">
                     <img src="./assets/images/1 (1).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
                     <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
                     <div class="absolute bottom-0 left-0 w-full z-10 p-4">
@@ -731,14 +738,218 @@
 </section>
 
 
-
-
-
-
-
-
-
 <!-- ************* end logo slider *********************** -->
+  <!-- ************* section-schedule ***********************  -->
+   <section id="section-schedule" class="bg-gray-900 text-gray-200 py-20 sm:py-28">
+        <div class="container mx-auto px-4">
+            <!-- === العنوان الرئيسي === -->
+            <div class="text-center mb-12">
+                <p class="text-indigo-400 font-semibold mb-3 text-lg">Event Schedule</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white">5 Days of AI Excellence</h2>
+            </div>
+
+            <!-- === نظام التبويبات (Tabs ) === -->
+            <div class="w-full max-w-6xl mx-auto">
+                <!-- أزرار التنقل بين الأيام -->
+                <div id="tab-navigation" class="flex flex-wrap justify-center sm:justify-between border-b border-gray-700 mb-12 pb-6 gap-x-6 gap-y-4">
+                    <button data-tab="day1" class="tab-nav-item text-center border-b-4 pb-3">
+                        <h3 class="text-xl sm:text-2xl font-bold">Day 1</h3>
+                        <span class="text-sm">Oct 1, 2025</span>
+                    </button>
+                    <button data-tab="day2" class="tab-nav-item text-center border-b-4 pb-3">
+                        <h3 class="text-xl sm:text-2xl font-bold">Day 2</h3>
+                        <span class="text-sm">Oct 2, 2025</span>
+                    </button>
+                    <button data-tab="day3" class="tab-nav-item text-center border-b-4 pb-3">
+                        <h3 class="text-xl sm:text-2xl font-bold">Day 3</h3>
+                        <span class="text-sm">Oct 3, 2025</span>
+                    </button>
+                    <button data-tab="day4" class="tab-nav-item active text-center border-b-4 pb-3">
+                        <h3 class="text-xl sm:text-2xl font-bold">Day 4</h3>
+                        <span class="text-sm">Oct 4, 2025</span>
+                    </button>
+                    <button data-tab="day5" class="tab-nav-item text-center border-b-4 pb-3">
+                        <h3 class="text-xl sm:text-2xl font-bold">Day 5</h3>
+                        <span class="text-sm">Oct 5, 2025</span>
+                    </button>
+                </div>
+
+                <!-- محتوى الأيام -->
+                <div id="tab-content" class="space-y-12">
+                    <!-- Day 1 Content -->
+                    <div id="day1" class="tab-pane hidden space-y-10">
+                        <!-- Schedule Item 1 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">08:00 – 10:00 AM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/1 (1).webp" class="w-24 h-24 rounded-lg object-cover" alt="Joshua Henry">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Joshua Henry</h5>
+                                    <p class="text-sm text-gray-400">AI Research Lead, DeepTech Labs</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Opening Keynote – The State of AI 2025</h3>
+                                <p class="text-gray-300">Kick off the event with an insightful overview of where artificial intelligence is headed.</p>
+                            </div>
+                        </div>
+                        <!-- Schedule Item 2 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">12:00 – 14:00 PM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/2 (3).webp" class="w-24 h-24 rounded-lg object-cover" alt="Leila Zhang">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Leila Zhang</h5>
+                                    <p class="text-sm text-gray-400">VP of Machine Learning, Google</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Building Human-Centered AI Products</h3>
+                                <p class="text-gray-300">This session covers how to design AI solutions that prioritize usability, fairness, and real-world impact.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 Content -->
+                    <div id="day2" class="tab-pane hidden space-y-10">
+                        <!-- Schedule Item 1 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">09:00 – 10:30 AM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/3 (3).webp" class="w-24 h-24 rounded-lg object-cover" alt="Leila Zhang">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Leila Zhang</h5>
+                                    <p class="text-sm text-gray-400">Head of AI Strategy, VisionFlow</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Ethical AI — From Theory to Practice</h3>
+                                <p class="text-gray-300">Explore how leading companies are implementing fairness, accountability, and transparency in real-world AI systems.</p>
+                            </div>
+                        </div>
+                        <!-- Schedule Item 2 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">11:00 – 12:30 PM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/4 (2).webp" class="w-24 h-24 rounded-lg object-cover" alt="Lisa Zhang">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Lisa Zhang</h5>
+                                    <p class="text-sm text-gray-400">AI Ethics Researcher, FairAI Group</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Bias in Data — Hidden Dangers in AI Pipelines</h3>
+                                <p class="text-gray-300">Lisa dives deep into the causes of bias in training data and showcases methods to detect and mitigate harm.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 Content -->
+                    <div id="day3" class="tab-pane hidden space-y-10">
+                        <!-- Schedule Item 1 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">09:00 – 10:30 AM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/5 (4).webp" class="w-24 h-24 rounded-lg object-cover" alt="Sofia Romero">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Sofia Romero</h5>
+                                    <p class="text-sm text-gray-400">ML Engineer, NeuronEdge</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Transformers in 2025 — What's Next?</h3>
+                                <p class="text-gray-300">A technical session diving into the future of transformer architectures, memory optimization, and scaling challenges.</p>
+                            </div>
+                        </div>
+                        <!-- Schedule Item 2 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">11:00 – 12:30 PM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/6 (2).webp" class="w-24 h-24 rounded-lg object-cover" alt="Tomás Eriksson">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Tomás Eriksson</h5>
+                                    <p class="text-sm text-gray-400">Founder, RealSim AI</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Synthetic Data Generation for Training</h3>
+                                <p class="text-gray-300">Tomás shares tools and techniques for creating high-quality synthetic datasets that speed up training and reduce risk.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 Content -->
+                    <div id="day4" class="tab-pane block space-y-10">
+                        <!-- Schedule Item 1 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">09:00 – 10:30 AM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/7 (2).webp" class="w-24 h-24 rounded-lg object-cover" alt="Nina Köhler">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Nina Köhler</h5>
+                                    <p class="text-sm text-gray-400">Chief Product Officer, SynthOS</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">AI in Product Design — From Concept to Launch</h3>
+                                <p class="text-gray-300">Nina shares how AI is revolutionizing product development, from ideation to real-time user feedback integration.</p>
+                            </div>
+                        </div>
+                        <!-- Schedule Item 2 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">11:00 – 12:30 PM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/8 (2).webp" class="w-24 h-24 rounded-lg object-cover" alt="Emmanuel Ruiz">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Emmanuel Ruiz</h5>
+                                    <p class="text-sm text-gray-400">CEO, NextCore Analytics</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Scaling AI Infrastructure for Enterprise</h3>
+                                <p class="text-gray-300">Explore key considerations when deploying and managing scalable, secure, and cost-effective AI systems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 Content -->
+                    <div id="day5" class="tab-pane hidden space-y-10">
+                        <!-- Schedule Item 1 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">09:00 – 10:30 AM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/9 (2).webp" class="w-24 h-24 rounded-lg object-cover" alt="Elena Greco">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Elena Greco</h5>
+                                    <p class="text-sm text-gray-400">Ethics Advisor, Global AI Forum</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Ethical Design in AI — A Human-Centered Approach</h3>
+                                <p class="text-gray-300">A deep dive into responsible AI, highlighting bias mitigation, fairness, transparency, and global implications.</p>
+                            </div>
+                        </div>
+                        <!-- Schedule Item 2 -->
+                        <div class="grid md:grid-cols-12 gap-6 items-center border-b border-gray-800 pb-8">
+                            <div class="md:col-span-2 text-gray-400 font-medium">11:00 – 12:30 PM</div>
+                            <div class="md:col-span-4 flex items-center gap-4">
+                                <img src="./assets/images/10 (2).webp" class="w-24 h-24 rounded-lg object-cover" alt="Marcus Dlamini">
+                                <div>
+                                    <h5 class="font-bold text-white text-lg">Marcus Dlamini</h5>
+                                    <p class="text-sm text-gray-400">Founder, EduAI Labs</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Personalized Learning with AI</h3>
+                                <p class="text-gray-300">Explore how AI-driven platforms are transforming education with adaptive learning paths and dynamic content delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- ************* end section-schedule ***********************  -->
     <!-- إضافة أنيميشن في CSS -->
     <style>
         @keyframes fadeIn {
@@ -759,82 +970,7 @@
     </style>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
  <script src="./src/index.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-            // Create timeline for entrance animations
-            const tl = gsap.timeline();
-
-            // First text content enters from left to right into fixed div
-            tl.to("#marquee-content-1", {
-                duration: 1,
-                x: "0%",
-                ease: "power2.out"
-            })
-                // Second text content enters from right to left after 1 second into fixed div
-                .to("#marquee-content-2", {
-                    duration: 1.5,
-                    x: "0%",
-                    ease: "power2.out"
-                }, "+=1");
-
-            // Start continuous marquee animations after entrance is complete
-            tl.call(() => {
-                startMarqueeAnimations();
-            });
-
-            function startMarqueeAnimations() {
-                // Get content widths for seamless loop calculation
-                const content1 = document.getElementById('marquee-content-1');
-                const content2 = document.getElementById('marquee-content-2');
-
-                const content1Width = content1.scrollWidth / 2; // Divide by 2 because we duplicated content
-                const content2Width = content2.scrollWidth / 2;
-
-                // Animate first marquee (left to right)
-                gsap.fromTo(content1,
-                    { x: 0 },
-                    {
-                        x: -content1Width,
-                        duration: 30,
-                        ease: "none",
-                        repeat: -1
-                    }
-                );
-
-                // Animate second marquee (right to left)
-                gsap.fromTo(content2,
-                    { x: -content2Width },
-                    {
-                        x: 0,
-                        duration: 30,
-                        ease: "none",
-                        repeat: -1
-                    }
-                );
-            }
-
-            // Optional: Pause animations on scroll (as mentioned in your requirement)
-            let isScrolling = false;
-            let scrollTimeout;
-
-            window.addEventListener('scroll', function () {
-                if (!isScrolling) {
-                    // Pause all GSAP animations
-                    gsap.globalTimeline.pause();
-                    isScrolling = true;
-                }
-
-                // Clear timeout and set new one
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(function () {
-                    // Resume animations after scrolling stops
-                    gsap.globalTimeline.play();
-                    isScrolling = false;
-                }, 10);
-            });
-        });
-    </script>
+ 
 
 
 
