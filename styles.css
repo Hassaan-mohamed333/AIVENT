@@ -186,7 +186,7 @@ h1 , h2 {
 .menu-item::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0px;
     left: 0;
     width: 0;
     height: 2px;

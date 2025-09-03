@@ -45,7 +45,7 @@
     <section id="header-section">
         <header class="fixed top-0 w-full z-[1000] transition-all duration-300" id="main-header">
             <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center py-4">
+                <div class="flex justify-between items-center py-0">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
                         <div id="logo">
@@ -61,16 +61,16 @@
                     <div class="hidden lg:flex flex-1 justify-center">
                         <nav id="mainmenu" class="flex items-center space-x-8">
                             <!-- Home Dropdown -->
-                            <div class=" group">
-                                <a href="index.html#section-hero" class="menu-item text-white hover:text-primary transition-colors duration-300 flex items-center">
+                            <div class=" group ">
+                                <a href="index.html#section-hero" class="menu-item my-0 py-4 text-white hover:text-primary transition-colors duration-300 flex items-center">
                                     Home
                                     <i class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
                                 </a>
                                 <div class="absolute top-full   mt-2 w-screen max-w-7xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                    <div class="bg-dark-2/95 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl">
+                                    <div class="bg-dark-2/95 backdrop-blur-sm bg-[#101435] border border-white/10 rounded-xl p-8 shadow-2xl">
                                         <div class="grid grid-cols-5 gap-6">
                                             <div class="text-center">
-                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow transition-all uration-300">
                                                     <a href="index.html" class="block">
                                                         <img src="./assets/images/demo/homepage-1.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 1">
                                                     </a>
@@ -308,22 +308,22 @@
                         <div class="relative overflow-hidden rounded-lg transition-transform duration-300 scale-in" data-animate="scale-in">
                             <div class="w-full bg-gradient-to-br from-purple-600 to-blue-600 flex hover items-center justify-center">
                                 <a class="block p-0" href="index-countdown.html">
-                                    <img src="./assets/images/misc/s1.webp" class="w-full h-auto transform transition-all duration-1000 group-hover:scale-110" alt="">
+                                    <img src="./assets/images/misc/s1.webp" class="w-full h-auto transform transition-all duration-1000 " alt="">
                                 </a>
                             </div>
                             <div class="absolute gradient-section-bottom"></div>
                         </div>
-                        <div class="bg-purple-600 text-white p-8 rounded-lg text-center hover:scale-105 transition-transform duration-300 scale-in" data-animate="scale-in">
+                        <div class="bg-purple-600 text-white p-8 rounded-lg text-center hover:scale-105 transition-transform  scale-in" data-animate="scale-in">
                             <h2 class="text-4xl mb-2">50</h2>
                             <div class="text-sm">World-class Speakers</div>
                         </div>
                     </div>
                     <div class="space-y-4 pt-12 scale-in">
-                        <div class="bg-[#442490] text-white p-8 rounded-lg text-center hover:scale-105 transition-transform duration-300" data-animate="scale-in">
+                        <div class="bg-[#442490] text-white p-8 rounded-lg text-center  transition-transform " data-animate="scale-in">
                             <h2 class="text-4xl mb-2">5</h2>
                             <div class="text-sm">Days of Event</div>
                         </div>
-                        <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300 scale-in" data-animate="scale-in">
+                        <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform  scale-in" data-animate="scale-in">
                             <div class="w-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
                                 <a class="block p-0" href="index-countdown.html">
                                     <img src="./assets/images/misc/s2.webp" class="w-full transform " alt="">
@@ -1057,7 +1057,7 @@
                 <div class="w-full lg:w-7/12 px-4">
                     <div class="space-y-4">
                         <!-- Accordion Item 1 -->
-                        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class=" rounded-lg shadow-lg overflow-hidden">
                             <div class="p-4 cursor-pointer font-bold text-lg flex justify-between items-center" data-target="#accordion-a1">
                                 What is the AI Summit 2025?
                                 <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1072,7 +1072,7 @@
                         </div>
 
                         <!-- Accordion Item 2 -->
-                        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class=" rounded-lg shadow-lg overflow-hidden">
                             <div class="p-4 cursor-pointer font-bold text-lg flex justify-between items-center" data-target="#accordion-a2">
                                 When and where will the event be held?
                                 <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1087,7 +1087,7 @@
                         </div>
 
                         <!-- Accordion Item 3 -->
-                        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class=" rounded-lg shadow-lg overflow-hidden">
                             <div class="p-4 cursor-pointer font-bold text-lg flex justify-between items-center" data-target="#accordion-a3">
                                 How can I register for the event?
                                 <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1102,7 +1102,7 @@
                         </div>
 
                         <!-- Accordion Item 4 -->
-                        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class=" rounded-lg shadow-lg overflow-hidden">
                             <div class="p-4 cursor-pointer font-bold text-lg flex justify-between items-center" data-target="#accordion-a4">
                                 What ticket options are available?
                                 <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1117,7 +1117,7 @@
                         </div>
 
                         <!-- Accordion Item 5 -->
-                        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class=" rounded-lg shadow-lg overflow-hidden">
                             <div class="p-4 cursor-pointer font-bold text-lg flex justify-between items-center" data-target="#accordion-a5">
                                 Can I transfer my ticket to someone else?
                                 <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1132,7 +1132,7 @@
                         </div>
 
                         <!-- Accordion Item 6 -->
-                        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class=" rounded-lg shadow-lg overflow-hidden">
                             <div class="p-4 cursor-pointer font-bold text-lg flex justify-between items-center" data-target="#accordion-a6">
                                 Will there be virtual participation?
                                 <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
