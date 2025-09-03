@@ -162,4 +162,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // ************* end section-schedule ***********************  
+//    ************* section-faq *********************** 
+document.addEventListener("DOMContentLoaded", function() {
+        const accordionHeaders = document.querySelectorAll("[data-target]");
 
+        accordionHeaders.forEach(header => {
+            header.addEventListener("click", function() {
+                const targetId = this.dataset.target;
+                const targetContent = document.querySelector(targetId);
+                const arrowIcon = this.querySelector("svg");
+
+                // Toggle the hidden class on the content
+                targetContent.classList.toggle("hidden");
+
+                // Rotate the arrow icon
+                arrowIcon.classList.toggle("rotate-180");
+            });
+        });
+    });
+    //    ************* end section-faq *********************** 
