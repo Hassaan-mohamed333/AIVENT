@@ -8,16 +8,15 @@
     <title>AIVENT</title>
     <link href="./output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./Tickets.html">
-    <link rel="stylesheet" href="./News.html">
-    <script src="./src/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./src/index.js"></script>
+    
 </head>
 
-<body class="bg-[]">
+<body class="font-tajawal" cz-shortcut-listen="true" style="height: 6153px; scroll-behavior: auto;" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
     <!-- SCROLL CONTROLS SECTION -->
     <section id="scroll-controls-section">
         <div class="fixed z-50 opacity-0 transition-all duration-300 ease-out left-4 top-1/2 transform -translate-y-1/2 scroll-to-top-container">
@@ -42,7 +41,7 @@
     </section>
 
     <!-- HEADER AND NAVIGATION SECTION -->
-    <section id="header-section">
+    <section id=" header-section">
         <header class="fixed top-0 w-full z-[1000] transition-all duration-300" id="main-header">
             <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-0">
@@ -66,13 +65,13 @@
                                     Home
                                     <i class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-300"></i>
                                 </a>
-                                <div class="absolute top-full   mt-2 w-screen max-w-7xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="absolute top-full   mt-2 w-screen max-w-6xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 z-50">
                                     <div class="bg-dark-2/95 backdrop-blur-sm bg-[#101435] border border-white/10 rounded-xl p-8 shadow-2xl">
                                         <div class="grid grid-cols-5 gap-6">
                                             <div class="text-center">
-                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow transition-all uration-300">
+                                                <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow transition-all uration-500">
                                                     <a href="index.html" class="block">
-                                                        <img src="./assets/images/demo/homepage-1.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 1">
+                                                        <img src="./assets/images/demo/homepage-1.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform transition-all duration-500" alt="Demo 1">
                                                     </a>
                                                 </div>
                                                 <h6 class="mt-3 text-white text-sm">Demo 1</h6>
@@ -103,7 +102,7 @@
                                             </div>
                                             <div class="text-center">
                                                 <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                                    <a href="index-countdown.html" class="block">
+                                                    <a href="./Tickets.html" class="block">
                                                         <img src="./assets/images/demo/homepage-5.webp" class="w-full h-32 object-cover hover:scale-110 transition-transform duration-300" alt="Demo 5">
                                                     </a>
                                                 </div>
@@ -144,7 +143,7 @@
 
                     <!-- Right Side -->
                     <div class="flex items-center">
-                        <a href="tickets-2.html" class="group bg-[#101435] text-white hover:bg-[#442490] font-semibold py-2 px-6 rounded-lg text-center block w-full relative overflow-hidden">
+                        <a href="tickets-2.html" class="group bg-[#101435] hidden lg:block text-white hover:bg-[#442490] font-semibold py-2 px-6 rounded-lg text-center block w-full relative overflow-hidden">
                             <span class="block transition-all duration-300 ease-in-out group-hover:translate-y-10 group-hover:opacity-0">
                                 Buy Tickets
                             </span>
@@ -171,10 +170,10 @@
     <section id="mobile-menu-section">
         <div id="mobile-menu" class="fixed inset-0 z-40 hidden lg:hidden" style="display: none;">
             <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="menu-overlay"></div>
+            <div class="absolute inset-0 bg-black/50 " id="menu-overlay"></div>
 
             <!-- Menu Panel -->
-            <div class="absolute right-0 top-0 h-full w-80 bg-dark-1 border-l border-white/10 shadow-2xl" id="menu-panel">
+            <div class="absolute right-0 top-0 h-full w-80 bg-[#101435] border-l border-white/10 shadow-2xl transition-all  " id="menu-panel">
                 <!-- Close Button -->
                 <div class="flex justify-end p-6">
                     <button id="close-menu-btn" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
@@ -271,31 +270,33 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="section-about" class="text-white py-20 relative px-4">
+      <section id="section-about" class="  text-white py-20  relative px-4 ">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="col-1 lg:pr-12">
+                <div class="lg:pr-12">
                     <div class="mb-6">
-                        <div class="inline-block text-sm font-semibold text-gray-400 mb-4" data-animate="fade-up">
-                            <span class="text-purple-500">[</span> About the Event <span class="text-purple-500">]</span>
+                        <div class="inline-block text-sm font-semibold text-gray-400 mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <span class="text-purple-500 font-bold">[</span> About the Event <span
+                                class="text-purple-500 font-bold">]</span>
                         </div>
-                        <h2 class="text-4xl lg:text-5xl mb-6 gradient-text" data-animate="fade-up">
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                             A Global Gathering <br/> of AI Innovators
                         </h2>
-                        <p class="text-gray-300 text-lg mb-8" data-animate="fade-up">
-                            Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity, and the future of work.
+                        <p class="text-gray-300 text-lg mb-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            Join thought leaders, developers, researchers, and founders as we explore how artificial
+                            intelligence is reshaping industries, creativity, and the future of work.
                         </p>
 
                         <ul class="space-y-4">
-                            <li class="flex items-start" data-animate="fade-up">
+                            <li class="flex items-start aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                                 <i class="fas fa-check text-purple-500 mt-1 mr-4"></i>
                                 <span class="text-gray-300">5 days of keynotes, workshops, and networking</span>
                             </li>
-                            <li class="flex items-start" data-animate="fade-up">
+                            <li class="flex items-start aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                                 <i class="fas fa-check text-purple-500 mt-1 mr-4"></i>
                                 <span class="text-gray-300">50 world-class speakers</span>
                             </li>
-                            <li class="flex items-start" data-animate="fade-up">
+                            <li class="flex items-start aos-init aos-animate" data-aos="fade-up">
                                 <i class="fas fa-check text-purple-500 mt-1 mr-4"></i>
                                 <span class="text-gray-300">Startup showcase and live demos</span>
                             </li>
@@ -303,39 +304,48 @@
                     </div>
                 </div>
 
-                <div class="col-2 grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-4">
                     <div class="space-y-4">
-                        <div class="relative overflow-hidden rounded-lg transition-transform duration-300 scale-in" data-animate="scale-in">
-                            <div class="w-full bg-gradient-to-br from-purple-600 to-blue-600 flex hover items-center justify-center">
-                                <a class="block p-0" href="index-countdown.html">
-                                    <img src="./assets/images/misc/s1.webp" class="w-full h-auto transform transition-all duration-1000 " alt="">
+                        <div class="relative overflow-hidden rounded-lg "
+                            data-animate="scale-in">
+                            <div
+                                class="w-full  bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center scale-in">
+                                <a class="block p-0 " href="index-countdown.html">
+                                    <img src="./assets/images/misc/s1.webp"
+                                        class="w-full h-auto  " alt="">
                                 </a>
                             </div>
-                            <div class="absolute gradient-section-bottom"></div>
+                            <div class="absolute  gradient-section-bottom"></div>
                         </div>
-                        <div class="bg-purple-600 text-white p-8 rounded-lg text-center hover:scale-105 transition-transform  scale-in" data-animate="scale-in">
-                            <h2 class="text-4xl mb-2">50</h2>
+                        <div class="bg-purple-600 text-white p-8 rounded-lg text-center  scale-in"
+                            data-animate="scale-in">
+                            <h2 class="text-4xl font-bold mb-2">50</h2>
                             <div class="text-sm">World-class Speakers</div>
                         </div>
                     </div>
-                    <div class="space-y-4 pt-12 scale-in">
-                        <div class="bg-[#442490] text-white p-8 rounded-lg text-center  transition-transform " data-animate="scale-in">
-                            <h2 class="text-4xl mb-2">5</h2>
+                    <div class="space-y-4 pt-12">
+                        <div class="bg-[#442490] text-white p-8 rounded-lg text-center scale-in "
+                            data-animate="scale-in">
+                            <h2 class="text-4xl font-bold mb-2">5</h2>
                             <div class="text-sm">Days of Event</div>
                         </div>
-                        <div class="relative overflow-hidden rounded-lg hover:scale-105 transition-transform  scale-in" data-animate="scale-in">
-                            <div class="w-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <div class="relative overflow-hidden rounded-lg "
+                            data-animate="scale-in">
+                            <div
+                                class="w-full  bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center scale-in">
                                 <a class="block p-0" href="index-countdown.html">
-                                    <img src="./assets/images/misc/s2.webp" class="w-full transform " alt="">
+                                    <img src="./assets/images/misc/s2.webp"
+                                        class="w-full transform hover:scale-110 transition duration-300 " alt="">
                                 </a>
                             </div>
-                            <div class="absolute gradient-section-bottom"></div>
+                            <div class="absolute  gradient-section-bottom"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- MARQUEE SECTION -->
     <section class="w-full overflow-hidden py-20">
@@ -423,9 +433,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1: Cutting-Edge Knowledge -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform transition-all duration-1000 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary  h-80">
                         <img src="./assets/images/misc/s3.webp" alt="Cutting-Edge Knowledge" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl mb-2 text-white">Cutting-Edge Knowledge</h4>
@@ -437,9 +447,9 @@
 
                 <!-- Card 2: Hands-On Learning -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform transition-all duration-1000 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform  h-80">
                         <img src="./assets/images/misc/s4.webp" alt="Hands-On Learning" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl mb-2 text-white">Hands-On Learning</h4>
@@ -451,9 +461,9 @@
 
                 <!-- Card 3: Global Networking -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform transition-all duration-1000 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary  h-80">
                         <img src="./assets/images/misc/s5.webp" alt="Global Networking" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 scale-in-mask">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0 0 gradient-Speakers-color"></div>
                         <div class="absolute inset-0"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl mb-2 text-white">Global Networking</h4>
@@ -465,9 +475,9 @@
 
                 <!-- Card 4: Startup Showcase -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform transition-all duration-1000 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary h-80">
                         <img src="./assets/images/misc/s6.webp" alt="Startup Showcase" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 scale-in-mask">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                             <h4 class="text-xl mb-2 text-white">Startup Showcase</h4>
@@ -479,7 +489,7 @@
 
                 <!-- Card 5: AI Career Boost -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform transition-all duration-1000 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary h-80">
                         <img src="./assets/images/misc/s7.webp" alt="AI Career Boost" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 scale-in-mask">
                         <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
@@ -493,9 +503,9 @@
 
                 <!-- Card 6: Ethics & Future -->
                 <div class="group card-hover scale-in">
-                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform transition-all duration-1000 h-80">
+                    <div class="bg-dark-2 rounded-lg overflow-hidden relative hover-bg-primary transform  h-80">
                         <img src="./assets/images/misc/s8.webp" alt="Ethics & Future" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute inset-0 hover-overlay"></div>
                         <div class="absolute bottom-[10px] left-0 right-0 p-6 z-10">
                             <h4 class="text-xl mb-2 text-white">Ethics & Future</h4>
@@ -526,7 +536,7 @@
                         <div class="absolute -top-4 -right-2 quote-icon bg-[#764df0] w-20 h-20 rounded-lg flex items-center justify-center z-10 n">
                             <i class="fas fa-quote-left text-white text-2xl"></i>
                         </div>
-                        <img src="./assets/images/misc/s9.webp" class="w-full rounded-[30px] animate-scale-in-mask shadow-2xl hover:scale-105 bg-fixed duration-300" style="background-attachment: fixed;" alt="Speaker">
+                        <img src="./assets/images/misc/s9.webp" class="w-full rounded-[30px] animate-scale-in-mask shadow-2xl hover:scale-105 bg-fixed " style="background-attachment: fixed;" alt="Speaker">
                     </div>
                 </div>
                 
@@ -542,7 +552,7 @@
     </section>
 
     <!-- SPEAKERS SECTION -->
-    <section class="text-white py-16 px-4">
+    <section id="SPEAKERS" class="text-white py-16 px-4">
         <div class="container mx-auto">
             <div class="flex flex-wrap justify-center mb-12">
                 <div class="w-full lg:w-6/12 relative z-10 text-center">
@@ -558,9 +568,9 @@
 
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                    <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 scale-in">
+                    <div class="relative rounded-lg overflow-hidden group  scale-in">
                         <img src="./assets/images/3 (3).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute bottom-0 left-0 w-full z-10 p-4">
                             <div class="backdrop-blur-sm bg-white/20 p-4 rounded-lg text-center relative z-20">
                                 <h3 class='text-xl font-semibold mb-1'>Joshua Henry</h3>
@@ -572,9 +582,9 @@
                 </div>
 
                 <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                    <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 scale-in">
+                    <div class="relative rounded-lg overflow-hidden group scale-in">
                         <img src="./assets/images/2 (3).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute bottom-0 left-0 w-full z-10 p-4">
                             <div class="backdrop-blur-sm bg-white/20 p-4 rounded-lg text-center relative z-20">
                                 <h3 class='text-xl font-semibold mb-1'>Leila Zhang</h3>
@@ -586,9 +596,9 @@
                 </div>
 
                 <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                    <div class="relative rounded-lg overflow-hidden group transform transition-all duration-1000 scale-in">
+                    <div class="relative rounded-lg overflow-hidden group  scale-in">
                         <img src="./assets/images/1 (1).webp" class="w-full h-auto object-cover transform transition-all duration-1000 group-hover:scale-110" alt="">
-                        <div class="absolute inset-0 transition-all duration-1000 gradient-Speakers-color"></div>
+                        <div class="absolute inset-0  gradient-Speakers-color"></div>
                         <div class="absolute bottom-0 left-0 w-full z-10 p-4">
                             <div class="backdrop-blur-sm bg-white/20 p-4 rounded-lg text-center relative z-20">
                                 <h3 class='text-xl font-semibold mb-1'>Carlos Rivera</h3>
@@ -1246,7 +1256,7 @@
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     <script src="./src/index.js"></script>
-
+    
 <script>
       document.addEventListener("DOMContentLoaded", function() {
         const accordionHeaders = document.querySelectorAll("[data-target]");

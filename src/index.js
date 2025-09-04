@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // GSAP Scale Animation Initialization
     if (typeof gsap === 'undefined') {
@@ -287,3 +290,170 @@ function fallbackAnimation() {
 if (typeof gsap === 'undefined') {
     document.addEventListener('DOMContentLoaded', fallbackAnimation);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Mobile Menu JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Get elements
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const header = document.getElementById('main-header');
+            const scrollToTopContainer = document.querySelector('.scroll-to-top-container');
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollbar = document.querySelector('.scrollbar-v');
+            const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+            
+            let isMenuOpen = false;
+            let lastScrollTop = 0;
+
+            // Toggle mobile menu
+            function toggleMobileMenu() {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    // Open menu
+                    mobileMenu.style.display = 'block';
+                    setTimeout(() => {
+                        mobileMenu.classList.add('active');
+                        menuBtn.classList.add('hamburger-active');
+                        document.body.style.overflow = 'hidden';
+                    }, 10);
+                } else {
+                    // Close menu
+                    mobileMenu.classList.remove('active');
+                    menuBtn.classList.remove('hamburger-active');
+                    document.body.style.overflow = '';
+                    
+                    setTimeout(() => {
+                        mobileMenu.style.display = 'none';
+                    }, 300);
+                }
+            }
+
+            // Handle scroll effects
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Header background on scroll
+                if (scrollTop > 50) {
+                    header.classList.add('header-bg');
+                } else {
+                    header.classList.remove('header-bg');
+                }
+                
+                // Auto-hide header on scroll down
+                if (scrollTop > lastScrollTop && scrollTop > 100 && !isMenuOpen) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
+            }
+
+            // Handle scroll progress and back to top button
+            function handleScrollProgress() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                
+                if (scrollProgress) {
+                    scrollProgress.style.height = scrollPercent + '%';
+                }
+                
+                if (scrollToTopContainer && scrollbar) {
+                    if (scrollTop > 300) {
+                        scrollToTopContainer.style.opacity = '1';
+                        scrollbar.style.opacity = '1';
+                    } else {
+                        scrollToTopContainer.style.opacity = '0';
+                        scrollbar.style.opacity = '0';
+                    }
+                }
+            }
+
+            // Scroll to top function
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Event listeners
+            if (menuBtn) {
+                menuBtn.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (closeMenuBtn) {
+                closeMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Close menu when clicking on menu items
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    toggleMobileMenu();
+                });
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // Close menu on window resize to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024 && isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // Scroll events
+            window.addEventListener('scroll', function() {
+                handleScroll();
+                handleScrollProgress();
+            });
+
+            // Make scrollToTop global
+            window.scrollToTop = scrollToTop;
+
+            // Initialize
+            handleScroll();
+            handleScrollProgress();
+        });
